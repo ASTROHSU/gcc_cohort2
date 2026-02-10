@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>區塊勢 Blocktrend - GCC Demo Day Presentation</title>
     <meta name="description" content="區塊勢 GCC Grant 申請簡報">
+    <!-- Favicon: 使用新的人物頭像 -->
+    <link rel="icon" href="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" type="image/png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -48,7 +51,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* 收斂 Padding，避免過大 */
             padding: 0 5vw;
             background-color: var(--slide-bg);
             position: relative;
@@ -72,7 +74,6 @@
             flex-shrink: 0;
         }
 
-        /* 字體調整：適中大小，避免滑動 */
         h1 {
             font-size: 3.2rem;
             font-weight: 900;
@@ -162,13 +163,13 @@
             background: #f4f6f8;
             padding: 1rem;
             border-left: 4px solid var(--accent-color);
-            margin-top: auto; /* 推到底部 */
+            margin-top: auto;
             font-size: 1.1rem;
             color: #555;
             line-height: 1.4;
         }
 
-        /* 數據展示 (Social Proof) */
+        /* 數據展示 */
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -200,17 +201,29 @@
             font-weight: 500;
         }
 
-        /* Logo 樣式 */
-        .logo-container {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            width: 100px;
-            z-index: 10;
+        /* --- 左下角 Logo (Bottom Left) --- */
+        .bottom-logo {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 55px; 
+            height: 55px;
+            z-index: 101;
+            background: white;
+            border-radius: 50%;
+            padding: 0; /* 圖片填滿圓形 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* 確保圖片變成圓形 */
+            border: 3px solid white;
         }
-        .logo-container img {
+        .bottom-logo img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* 導航控制 */
@@ -246,8 +259,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 6px;
-            background: rgba(0,0,0,0.05);
+            height: 12px;
+            background: rgba(0,0,0,0.08);
             z-index: 100;
         }
 
@@ -255,13 +268,15 @@
             height: 100%;
             background: var(--accent-color);
             width: 0%;
-            transition: width 0.3s;
+            transition: width 0.3s ease-out;
+            background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+            background-size: 1rem 1rem;
         }
 
         .page-number {
             position: absolute;
-            bottom: 2rem;
-            right: 3rem;
+            bottom: 20px;
+            right: 30px;
             font-size: 1rem;
             color: #999;
             font-weight: 700;
@@ -284,8 +299,12 @@
         }
         .cover-logo {
             width: 200px;
+            height: 200px; /* 確保正圓形 */
             margin-bottom: 2rem;
-            filter: brightness(0) invert(1);
+            border-radius: 50%; 
+            object-fit: cover;
+            border: 5px solid rgba(255,255,255,0.2); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         /* 循環圖示 */
@@ -327,7 +346,6 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        /* --- 針對筆電或較矮螢幕的特殊優化 --- */
         @media (max-height: 800px) {
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; margin-bottom: 0.5rem; }
@@ -340,23 +358,21 @@
             .stat-number { font-size: 1.5rem; }
         }
 
-        /* 手機直式 */
         @media (max-width: 768px) {
             .slider-container { width: 100vw; flex-direction: column; overflow-y: auto; height: auto; display: block; }
             .slide { height: auto; min-height: 100vh; padding: 4rem 2rem; position: relative; width: 100%; top: 0; left: 0; }
             .grid-2, .stat-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .cycle-container { flex-direction: column; }
             .cycle-arrow { transform: rotate(90deg); margin: 0.5rem 0; }
-            .logo-container { width: 80px; top: 1rem; left: 1rem; }
-            .nav-btn, .progress-container { display: none; } /* 手機改用原生滾動 */
+            .nav-btn, .progress-container, .bottom-logo { display: none; } /* 手機版通常會隱藏底部條以免擋住內容 */
         }
     </style>
 </head>
 <body>
 
-    <!-- Logo (Fixed) -->
-    <div class="logo-container" id="fixed-logo" style="display: none;">
-        <img src="https://i.urusai.cc/c8Wi8.png" alt="Blocktrend Logo">
+    <!-- Logo (Fixed Bottom Left Only) -->
+    <div class="bottom-logo">
+        <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" alt="Blocktrend Logo">
     </div>
 
     <div class="slider-container" id="slider">
@@ -364,7 +380,8 @@
         <!-- Slide 1: Cover -->
         <div class="slide slide-cover">
             <div class="content-wrapper" style="align-items: center;">
-                <img src="https://i.urusai.cc/c8Wi8.png" alt="Blocktrend Logo" class="cover-logo">
+                <!-- Cover Logo (Center) -->
+                <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" alt="Blocktrend Logo" class="cover-logo">
                 <div class="header">
                     <h1>華語區塊鏈知識的公共基礎建設</h1>
                 </div>
@@ -506,7 +523,7 @@
             <div class="page-number">5 / 8</div>
         </div>
 
-        <!-- Slide 6: Social Proof (Optimized Layout) -->
+        <!-- Slide 6: Social Proof -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -516,7 +533,6 @@
                 
                 <p>我們不只創造內容，更解決了讀者的真實焦慮。</p>
 
-                <!-- 數據區塊：精簡化 -->
                 <div class="stat-grid">
                     <div class="stat-item">
                         <div class="stat-number">務實</div>
@@ -634,18 +650,11 @@
         const totalSlides = 8; 
         const slider = document.getElementById('slider');
         const progressBar = document.getElementById('progress');
-        const fixedLogo = document.getElementById('fixed-logo');
 
         function updateSlide() {
             slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
             const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
             progressBar.style.width = `${progressPercentage}%`;
-
-            if (currentSlide === 0) {
-                fixedLogo.style.display = 'none';
-            } else {
-                fixedLogo.style.display = 'block';
-            }
         }
 
         function nextSlide() {
