@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* 1. 色彩系統更新：Blocktrend Blue */
-            --primary-color: #1e3a8a; /* 深藍色 (原本是深灰藍) - 用於主要文字與標題 */
-            --accent-color: #2563eb;  /* 亮藍色 (原本是橘色) - 用於強調、圖示、進度條 */
+            /* 還原配色 */
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22; /* 區塊勢橘色系 */
             --bg-color: #f8f9fa;
             --text-color: #333;
             --slide-bg: #ffffff;
@@ -94,7 +94,7 @@
 
         h3 {
             font-size: 1.8rem;
-            color: #64748b; /* 稍微調整副標題灰色，帶一點藍調 */
+            color: #666;
             font-weight: 500;
             margin-top: 0.5rem;
         }
@@ -102,7 +102,7 @@
         p {
             font-size: 1.5rem;
             line-height: 1.6;
-            color: #334155; /* 深藍灰內文 */
+            color: #444;
             margin-bottom: 1.5rem;
         }
 
@@ -116,7 +116,7 @@
             margin-bottom: 1.2rem;
             padding-left: 2.2rem;
             position: relative;
-            color: #334155;
+            color: #444;
         }
 
         li::before {
@@ -148,7 +148,7 @@
             padding: 3rem;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #eee;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -158,18 +158,18 @@
         .card h4 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: var(--primary-color); /* 標題統一使用深藍色 */
+            color: var(--primary-color);
             font-weight: 700;
         }
 
         .quote-box {
             font-style: italic;
-            background: #f1f5f9; /* 淺藍灰背景 */
+            background: #f4f6f8;
             padding: 1.5rem;
             border-left: 5px solid var(--accent-color);
             margin-top: auto;
-            font-size: 1.35rem; /* 保持上一版設定的 1.35rem */
-            color: #475569;
+            font-size: 1.35rem; 
+            color: #555;
             line-height: 1.5;
         }
 
@@ -224,7 +224,6 @@
             background: var(--accent-color);
             width: 0%;
             transition: width 0.3s ease-out;
-            /* 藍色光澤感漸層 */
             background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
             background-size: 1rem 1rem;
         }
@@ -234,14 +233,13 @@
             bottom: 25px;
             right: 35px;
             font-size: 1.2rem;
-            color: #94a3b8;
+            color: #999;
             font-weight: 700;
         }
 
         /* 封面 */
         .slide-cover {
-            /* 封面背景改為深藍色漸層 */
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
             color: white;
             text-align: center;
         }
@@ -272,7 +270,7 @@
             background: #fff;
             border-radius: 20px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #eee;
             position: relative;
             z-index: 2;
             height: 100%;
@@ -284,7 +282,7 @@
         .cycle-icon {
             font-size: 4rem;
             margin-bottom: 1.5rem;
-            background: #eff6ff; /* 淺藍色背景 */
+            background: #fff5eb;
             width: 90px;
             height: 90px;
             display: flex;
@@ -311,7 +309,7 @@
         .cycle-step p {
             font-size: 1.3rem;
             line-height: 1.5;
-            color: #475569;
+            color: #666;
             margin-bottom: 0;
         }
 
@@ -321,7 +319,7 @@
             left: 10%;
             right: 10%;
             height: 4px;
-            background: #f1f5f9;
+            background: #f0f0f0;
             z-index: 0;
             transform: translateY(-50%);
         }
@@ -336,7 +334,7 @@
         .budget-table th, .budget-table td {
             text-align: left;
             padding: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #ddd;
         }
         .budget-table th {
             color: var(--accent-color);
@@ -401,7 +399,7 @@
                 </div>
                 
                 <div class="grid-2">
-                    <div class="card" style="border-left: 10px solid #94a3b8;">
+                    <div class="card" style="border-left: 10px solid #bdc3c7;">
                         <h4>❌ 現狀：流量陷阱</h4>
                         <ul style="font-size: 1.4rem;">
                             <li><strong>廣告模式：</strong> 媒體為追求點擊率，產出大量低品質內容。</li>
@@ -487,16 +485,15 @@
                 </div>
 
                 <div class="grid-2" style="margin-top: 2rem;">
-                    <div class="card" style="background-color: #f8fafc; border-left: 10px solid #64748b;">
-                        <!-- 顏色微調為冷色調 -->
-                        <h4 style="color: #475569;">為什麼需要這筆資金？</h4>
+                    <div class="card" style="background-color: #fff5f5; border-left: 10px solid #e74c3c;">
+                        <h4 style="color: #c0392b;">為什麼需要這筆資金？</h4>
                         <ul style="font-size: 1.4rem;">
                             <li><strong>專注內容創作：</strong> 讓創作者回歸最擅長的研究與論述，確保內容品質。</li>
                             <li><strong>專業分工體系：</strong> 將影音後製、週報編輯與活動行政外包給專業人員，升級為專業產線。</li>
-                            <li><strong>向下紮根：</strong> 贊助台灣區塊鏈大學聯盟研究社，降低知識門檻。</li>
+                            <li><strong>向下紮根：</strong> 贊助大學區塊鏈研究社訂閱，降低知識門檻。</li>
                         </ul>
                     </div>
-                    <div class="card" style="background-color: #eff6ff; border-left: 10px solid var(--accent-color);">
+                    <div class="card" style="background-color: #f0f9ff; border-left: 10px solid var(--accent-color);">
                         <h4 style="color: var(--accent-color);">預算分配與里程碑 ($9,000)</h4>
                         <ul style="font-size: 1.4rem;">
                             <li><strong>內容協作夥伴 (50%)：</strong> 聘請兼職編輯與影音剪輯，釋放創作者時間專注於深度報導。</li>
