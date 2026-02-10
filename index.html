@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>區塊勢 Blocktrend - GCC Demo Day Presentation</title>
     <meta name="description" content="區塊勢 GCC Grant 申請簡報">
+    <!-- 1. 新增 Favicon -->
+    <link rel="icon" href="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" type="image/png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -13,7 +16,7 @@
             --bg-color: #f8f9fa;
             --text-color: #333;
             --slide-bg: #ffffff;
-            --total-slides: 8; /* 更新為 8 頁 */
+            --total-slides: 8; 
         }
 
         * {
@@ -29,7 +32,7 @@
             color: var(--text-color);
             height: 100vh;
             width: 100vw;
-            font-size: 16px; /* 基底字體 */
+            font-size: 16px; 
         }
 
         /* 幻燈片容器 */
@@ -48,67 +51,57 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* 調整 Padding，給大字體更多空間 */
-            padding: 3rem 6rem;
+            padding: 0 5vw;
             background-color: var(--slide-bg);
             position: relative;
-            overflow-y: auto; /* 內容過多時可垂直滾動 */
         }
 
         /* 內容佈局 */
         .content-wrapper {
-            max-width: 1400px; /* 加寬內容區域 */
+            max-width: 1200px;
             width: 100%;
-            height: 100%; /* 確保內容撐開 */
+            height: auto;
+            max-height: 90vh; /* 確保內容不超出視窗 */
             display: flex;
             flex-direction: column;
-            justify-content: center; /* 垂直置中 */
-        }
-        
-        /* 當內容過多導致高度不足時，改為從頂部開始 */
-        @media (max-height: 800px) {
-            .content-wrapper {
-                justify-content: flex-start;
-                padding-top: 2rem;
-            }
+            justify-content: center;
         }
 
         .header {
-            margin-bottom: 3rem;
-            border-left: 8px solid var(--accent-color);
-            padding-left: 2rem;
+            margin-bottom: 2rem;
+            border-left: 6px solid var(--accent-color);
+            padding-left: 1.5rem;
             flex-shrink: 0;
         }
 
-        /* 字體放大區 */
         h1 {
-            font-size: 4.5rem; /* 放大 */
+            font-size: 3.2rem;
             font-weight: 900;
             color: var(--primary-color);
-            line-height: 1.1;
-            margin-bottom: 1rem;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
         }
 
         h2 {
-            font-size: 3.5rem; /* 放大 */
+            font-size: 2.4rem;
             font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
         }
 
         h3 {
-            font-size: 2rem; /* 放大 */
+            font-size: 1.5rem;
             color: #666;
             font-weight: 500;
-            margin-top: 0.5rem;
+            margin-top: 0.25rem;
         }
 
         p {
-            font-size: 1.6rem; /* 放大 */
+            font-size: 1.25rem;
             line-height: 1.6;
             color: #444;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
         ul {
@@ -116,10 +109,10 @@
         }
 
         li {
-            font-size: 1.6rem; /* 放大 */
-            line-height: 1.6;
-            margin-bottom: 1.2rem;
-            padding-left: 2.5rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
             position: relative;
         }
 
@@ -127,32 +120,31 @@
             content: "•";
             color: var(--accent-color);
             font-weight: bold;
-            font-size: 2.5rem;
+            font-size: 2rem;
             position: absolute;
             left: 0;
             top: -8px;
         }
 
-        /* 重點強調 */
         .highlight {
             color: var(--accent-color);
             font-weight: 700;
         }
 
-        /* 網格佈局優化 */
+        /* 網格佈局 */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem; /* 增加間距 */
-            align-items: stretch; /* 等高 */
-            margin-top: 2rem;
+            gap: 2.5rem;
+            align-items: stretch;
+            margin-top: 1rem;
         }
 
         .card {
             background: #fdfdfd;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
             border: 1px solid #eee;
             height: 100%;
             display: flex;
@@ -160,66 +152,77 @@
         }
         
         .card h4 {
-            font-size: 2rem; /* 放大 */
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
             color: var(--primary-color);
             font-weight: 700;
         }
 
-        /* 引用樣式 (新增) */
         .quote-box {
             font-style: italic;
             background: #f4f6f8;
-            padding: 1.5rem;
-            border-left: 5px solid var(--accent-color);
-            margin-top: 1rem;
-            font-size: 1.4rem;
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            margin-top: auto;
+            font-size: 1.1rem;
             color: #555;
+            line-height: 1.4;
         }
 
-        /* 數據展示 (新增) */
+        /* 數據展示 */
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
             text-align: center;
         }
         .stat-item {
             background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 2px solid #f0f0f0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
         .stat-number {
-            font-size: 3rem; /* 調整大小以適應文字 */
+            font-size: 1.8rem;
             font-weight: 900;
             color: var(--accent-color);
             line-height: 1.2;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
         .stat-label {
-            font-size: 1.4rem;
+            font-size: 1rem;
             color: var(--primary-color);
             font-weight: 500;
         }
 
-        /* Logo 樣式 */
-        .logo-container {
-            position: absolute;
-            top: 2.5rem;
-            left: 3rem;
-            width: 140px; /* 放大 */
-            z-index: 10;
+        /* --- 2. 底部 Logo 樣式 (取代左上角) --- */
+        .bottom-logo {
+            position: fixed;
+            bottom: 20px; /* 位於進度條上方一點點 */
+            left: 20px;
+            width: 45px;
+            height: 45px;
+            z-index: 101;
+            background: white;
+            border-radius: 50%;
+            padding: 0; /* 圖片填滿圓形 */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* 確保圖片變成圓形 */
         }
-        .logo-container img {
+        .bottom-logo img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* 導航控制 */
@@ -227,37 +230,36 @@
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.05); /* 更淡的背景 */
-            color: #333;
+            background: transparent;
+            color: #ccc;
             border: none;
-            width: 60px;
-            height: 120px;
+            width: 50px;
+            height: 100px;
             cursor: pointer;
             z-index: 100;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            border-radius: 12px;
+            font-size: 2rem;
         }
 
         .nav-btn:hover {
-            background: rgba(0,0,0,0.2);
-            color: white;
+            color: var(--accent-color);
+            background: rgba(0,0,0,0.02);
         }
 
-        .prev-btn { left: 20px; }
-        .next-btn { right: 20px; }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
 
-        /* 進度條 */
+        /* --- 3. 進度條優化 --- */
         .progress-container {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 10px; /* 加粗 */
-            background: rgba(0,0,0,0.1);
+            height: 12px; /* 加厚至 12px */
+            background: rgba(0,0,0,0.08); /* 稍微加深背景 */
             z-index: 100;
         }
 
@@ -265,14 +267,17 @@
             height: 100%;
             background: var(--accent-color);
             width: 0%;
-            transition: width 0.3s;
+            transition: width 0.3s ease-out;
+            /* 增加一點光澤感 */
+            background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+            background-size: 1rem 1rem;
         }
 
         .page-number {
             position: absolute;
-            bottom: 2.5rem;
-            right: 4rem;
-            font-size: 1.4rem;
+            bottom: 20px;
+            right: 30px;
+            font-size: 1rem;
             color: #999;
             font-weight: 700;
         }
@@ -290,12 +295,13 @@
         .slide-cover .header {
             border-left: none;
             padding: 0;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
         }
         .cover-logo {
-            width: 280px; /* 放大 */
-            margin-bottom: 4rem;
-            filter: brightness(0) invert(1);
+            width: 200px;
+            margin-bottom: 2rem;
+            border-radius: 50%; /* 封面圖也做圓角處理 */
+            /* 移除反白濾鏡，以顯示彩色照片 */
         }
 
         /* 循環圖示 */
@@ -303,19 +309,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 4rem;
+            margin-top: 2rem;
             text-align: center;
         }
         .cycle-step {
             flex: 1;
-            padding: 3rem;
+            padding: 2rem;
             background: #fff;
-            border-radius: 16px;
+            border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin: 0 1.5rem;
+            margin: 0 1rem;
         }
         .cycle-arrow {
-            font-size: 3rem;
+            font-size: 2rem;
             color: var(--accent-color);
         }
 
@@ -323,50 +329,47 @@
         .budget-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 2rem;
-            font-size: 1.5rem; /* 放大 */
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
         }
         .budget-table th, .budget-table td {
             text-align: left;
-            padding: 1.5rem;
+            padding: 1rem;
             border-bottom: 1px solid #ddd;
         }
         .budget-table th {
             color: var(--accent-color);
             font-weight: 700;
-            border-bottom: 3px solid var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
         }
 
-        /* RWD: 防止破版 */
-        @media (max-width: 1200px) {
-            .slide { padding: 3rem 4rem; }
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.8rem; }
-            p, li { font-size: 1.4rem; }
-            .grid-2 { gap: 2rem; }
-            .logo-container { width: 100px; top: 1.5rem; left: 1.5rem; }
+        @media (max-height: 800px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+            p, li { font-size: 1.1rem; margin-bottom: 0.5rem; }
+            .header { margin-bottom: 1rem; }
+            .slide { padding: 0 3rem; }
+            .card { padding: 1.5rem; }
+            .cycle-step { padding: 1.5rem; }
+            .cycle-step div { font-size: 2.5rem !important; margin-bottom: 0.5rem !important; }
+            .stat-number { font-size: 1.5rem; }
         }
 
-        @media (max-width: 900px) {
-            /* 強制單欄以避免過於擁擠 */
-            .grid-2 { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+            .slider-container { width: 100vw; flex-direction: column; overflow-y: auto; height: auto; display: block; }
+            .slide { height: auto; min-height: 100vh; padding: 4rem 2rem; position: relative; width: 100%; top: 0; left: 0; }
+            .grid-2, .stat-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .cycle-container { flex-direction: column; }
-            .cycle-arrow { transform: rotate(90deg); margin: 1rem 0; }
-            .stat-grid { grid-template-columns: 1fr; }
-            .slide { 
-                padding: 2rem; 
-                display: block; /* 取消 flex center 以允許更長的滾動 */
-            }
-            .content-wrapper { justify-content: flex-start; }
-            .nav-btn { display: none; /* 手機上隱藏按鈕，改用滑動 */ }
+            .cycle-arrow { transform: rotate(90deg); margin: 0.5rem 0; }
+            .nav-btn, .progress-container, .bottom-logo { display: none; } /* 手機版通常會隱藏底部條以免擋住內容 */
         }
     </style>
 </head>
 <body>
 
-    <!-- Logo (Fixed) -->
-    <div class="logo-container" id="fixed-logo" style="display: none;">
-        <img src="https://i.urusai.cc/c8Wi8.png" alt="Blocktrend Logo">
+    <!-- Logo (Fixed Bottom Left) -->
+    <div class="bottom-logo">
+        <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" alt="Blocktrend Logo">
     </div>
 
     <div class="slider-container" id="slider">
@@ -374,13 +377,13 @@
         <!-- Slide 1: Cover -->
         <div class="slide slide-cover">
             <div class="content-wrapper" style="align-items: center;">
-                <img src="https://i.urusai.cc/c8Wi8.png" alt="Blocktrend Logo" class="cover-logo">
+                <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" alt="Blocktrend Logo" class="cover-logo">
                 <div class="header">
                     <h1>華語區塊鏈知識的公共基礎建設</h1>
                 </div>
-                <div style="margin-top: 6rem; opacity: 0.9;">
-                    <p style="font-size: 2rem; margin-bottom: 1rem;">GCC Public Goods Grant Cohort 2 Demo Day</p>
-                    <p style="font-size: 1.8rem; font-weight: 500;">許明恩</p>
+                <div style="margin-top: 3rem; opacity: 0.9;">
+                    <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">GCC Public Goods Grant Cohort 2 Demo Day</p>
+                    <p style="font-size: 1.25rem; font-weight: 500;">許明恩</p>
                 </div>
             </div>
             <div class="page-number">1 / 8</div>
@@ -393,14 +396,14 @@
                     <h2>公共議題</h2>
                 </div>
                 
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <p style="font-size: 2rem; font-weight: 700;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <p style="font-size: 1.5rem; font-weight: 700;">
                         在 AI 問世後，資訊不是太少，而是<span class="highlight">太多</span>。
                     </p>
                 </div>
 
                 <div class="grid-2">
-                    <div class="card" style="border-left: 10px solid #bdc3c7;">
+                    <div class="card" style="border-left: 6px solid #bdc3c7;">
                         <h4>現狀：資訊焦慮</h4>
                         <ul>
                             <li>資訊爆炸，內容農場與 AI 生成內容氾濫。</li>
@@ -408,7 +411,7 @@
                             <li>「更多」的資訊已不再是解方，而是負擔。</li>
                         </ul>
                     </div>
-                    <div class="card" style="border-left: 10px solid var(--accent-color);">
+                    <div class="card" style="border-left: 6px solid var(--accent-color);">
                         <h4>解方：少即是多</h4>
                         <ul>
                             <li>區塊勢不追求海量報導，只提供經過驗證的洞察。</li>
@@ -431,7 +434,7 @@
                 <p>為什麼媒體會變成企業的傳聲筒？因為商業模式錯了。</p>
 
                 <div class="grid-2">
-                    <div class="card" style="background-color: #fff5f5; border: none; border-left: 10px solid #e74c3c;">
+                    <div class="card" style="background-color: #fff5f5; border: none; border-left: 6px solid #e74c3c;">
                         <h4 style="color: #c0392b;">傳統模式：流量變現</h4>
                         <p><strong>邏輯：</strong>把讀者騙進來，賣給廣告商。</p>
                         <ul>
@@ -440,7 +443,7 @@
                             <li>關係：讀者是「產品」，廣告商才是客戶。</li>
                         </ul>
                     </div>
-                    <div class="card" style="background-color: #f0f9ff; border: none; border-left: 10px solid var(--accent-color);">
+                    <div class="card" style="background-color: #f0f9ff; border: none; border-left: 6px solid var(--accent-color);">
                         <h4 style="color: var(--accent-color);">區塊勢模式：內容付費</h4>
                         <p><strong>邏輯：</strong>用長時間證明訂閱價值，建立信任。</p>
                         <ul>
@@ -465,19 +468,19 @@
 
                 <div class="cycle-container">
                     <div class="cycle-step">
-                        <div style="font-size: 4rem; margin-bottom: 1.5rem;">🛡️</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
                         <h4>1. 篩選</h4>
                         <p>付費牆篩選出「不求炒幣資訊」的高品質讀者。</p>
                     </div>
                     <div class="cycle-arrow">➡</div>
                     <div class="cycle-step">
-                        <div style="font-size: 4rem; margin-bottom: 1.5rem;">🗳️</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🗳️</div>
                         <h4>2. 投票</h4>
                         <p>讀者用訂閱費與開信率，告訴我他們在乎什麼。</p>
                     </div>
                     <div class="cycle-arrow">➡</div>
                     <div class="cycle-step">
-                        <div style="font-size: 4rem; margin-bottom: 1.5rem;">💎</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>
                         <h4>3. 產出</h4>
                         <p>針對真實需求創作，而非想像中的流量密碼。</p>
                     </div>
@@ -493,9 +496,9 @@
                     <h2>影響力與驗證數據</h2>
                 </div>
 
-                <div style="background: #f0f4f8; padding: 2rem; border-radius: 16px; margin-bottom: 3rem;">
-                    <p style="font-size: 2rem; color: var(--primary-color); margin-bottom: 0;">
-                        <span style="font-size: 4rem; font-weight: bold; color: var(--accent-color);">2017</span> 年至今的信任積累
+                <div style="background: #f0f4f8; padding: 1.5rem 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                    <p style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0;">
+                        <span style="font-size: 3rem; font-weight: bold; color: var(--accent-color);">2017</span> 年至今的信任積累
                     </p>
                     <p style="margin-bottom: 0;">不僅服務個人，更深入<strong>決策核心</strong>。</p>
                 </div>
@@ -516,7 +519,7 @@
             <div class="page-number">5 / 8</div>
         </div>
 
-        <!-- Slide 6: Social Proof (NEW) -->
+        <!-- Slide 6: Social Proof -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -524,34 +527,33 @@
                     <h3>2025 年內容滿意度調查回饋</h3>
                 </div>
                 
-                <p>我們不只創造內容，更解決了讀者的真實焦慮。以下來自 2025 年讀者的真實聲音：</p>
+                <p>我們不只創造內容，更解決了讀者的真實焦慮。</p>
 
-                <!-- 替換為 CSV 中的關鍵主題 -->
                 <div class="stat-grid">
                     <div class="stat-item">
                         <div class="stat-number">務實</div>
-                        <div class="stat-label">「不盲目信仰，橋接去中心化與現實世界」</div>
+                        <div class="stat-label">「不盲目信仰，橋接去中心化與現實」</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">精準</div>
-                        <div class="stat-label">「技術與白話的平衡剛好，節省大量時間」</div>
+                        <div class="stat-label">「技術與白話的平衡，節省大量時間」</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">必需</div>
-                        <div class="stat-label">「工作上需要相關知識，是可靠的資訊來源」</div>
+                        <div class="stat-label">「工作上需要的可靠資訊來源」</div>
                     </div>
                 </div>
 
-                <div class="grid-2" style="margin-top: 3rem;">
-                    <div class="card" style="background: #f9f9f9;">
-                        <h4>讀者評價：橋接兩邊的世界</h4>
+                <div class="grid-2" style="margin-top: 2rem;">
+                    <div class="card" style="background: #f9f9f9; padding: 1.5rem;">
+                        <h4>橋接兩邊的世界</h4>
                         <p class="quote-box">「務實：不是無條件支持去中心化或反中心化，在幣圈/鏈圈分化的情況，<span class="highlight">橋接兩邊的世界</span>（這也是我的工作之一）。」</p>
-                        <p style="text-align: right; font-size: 1rem; color: #999; margin-top: 1rem;">— 來自從業人員的滿意度回饋</p>
+                        <p style="text-align: right; font-size: 0.9rem; color: #999; margin-top: 0.5rem;">— 從業人員回饋</p>
                     </div>
-                    <div class="card" style="background: #f9f9f9;">
-                        <h4>讀者評價：難以取代的洞察</h4>
+                    <div class="card" style="background: #f9f9f9; padding: 1.5rem;">
+                        <h4>難以取代的洞察</h4>
                         <p class="quote-box">「技術與白話的解釋平衡剛好，不會太淺也不會太艱澀... <span class="highlight">邏輯自洽，自我修正</span>。」</p>
-                        <p style="text-align: right; font-size: 1rem; color: #999; margin-top: 1rem;">— 訂閱 2 年以上讀者</p>
+                        <p style="text-align: right; font-size: 0.9rem; color: #999; margin-top: 0.5rem;">— 訂閱 2 年以上讀者</p>
                     </div>
                 </div>
             </div>
@@ -567,17 +569,17 @@
 
                 <p>隨著市場成熟，區塊勢將引領讀者關注下一階段的典範轉移。</p>
 
-                <div style="display: flex; gap: 3rem; margin-top: 3rem;">
-                    <div style="flex: 1; padding: 2.5rem; background: #fff; border: 1px solid #ddd; border-radius: 12px;">
-                        <h4 style="color:#999; margin-bottom:1rem;">過去</h4>
-                        <h3 style="margin-bottom:1.5rem;">DeFi 與 金融投機</h3>
+                <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+                    <div style="flex: 1; padding: 2rem; background: #fff; border: 1px solid #ddd; border-radius: 12px;">
+                        <h4 style="color:#999; margin-bottom:0.5rem;">過去</h4>
+                        <h3 style="margin-bottom:1rem; font-size: 1.5rem;">DeFi 與 金融投機</h3>
                         <p>關注幣價、年化報酬率、單點式的金融應用。</p>
                     </div>
-                    <div style="display:flex; align-items:center; color:var(--accent-color); font-size: 3rem;">➡</div>
-                    <div style="flex: 1; padding: 2.5rem; background: #fff; border: 4px solid var(--accent-color); border-radius: 12px; box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);">
-                        <h4 style="color:var(--accent-color); margin-bottom:1rem;">未來 (2025-2026)</h4>
-                        <h3 style="margin-bottom:1.5rem;">Web3 經濟體與數位基建</h3>
-                        <p>關注<strong>隱私技術</strong>、<strong>公共財 (Public Goods)</strong>、以及區塊鏈如何嵌入實體經濟。</p>
+                    <div style="display:flex; align-items:center; color:var(--accent-color); font-size: 2rem;">➡</div>
+                    <div style="flex: 1; padding: 2rem; background: #fff; border: 4px solid var(--accent-color); border-radius: 12px; box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);">
+                        <h4 style="color:var(--accent-color); margin-bottom:0.5rem;">未來 (2025-2026)</h4>
+                        <h3 style="margin-bottom:1rem; font-size: 1.5rem;">Web3 經濟體與數位基建</h3>
+                        <p>關注<strong>隱私技術</strong>、<strong>公共財</strong>、以及區塊鏈如何嵌入實體經濟。</p>
                     </div>
                 </div>
             </div>
@@ -604,7 +606,7 @@
                     <tbody>
                         <tr>
                             <td><strong>深度專題製作</strong><br>(40%)</td>
-                            <td>針對 GCC 關注的「隱私技術」與「數位主權」製作深度報告，並設為公開資源。</td>
+                            <td>針對 GCC 關注的「隱私技術」與「數位主權」製作深度報告。</td>
                             <td>4 篇深度長文<br>(免費公開)</td>
                         </tr>
                         <tr>
@@ -620,9 +622,9 @@
                     </tbody>
                 </table>
 
-                <div style="margin-top: 4rem; text-align: center;">
-                    <p class="highlight" style="font-size: 2rem;">支持區塊勢，就是投資華語區塊鏈社區的「認知基礎建設」。</p>
-                    <p style="font-size: 1.4rem; color: #666;">Contact: hi@blocktrend.today</p>
+                <div style="margin-top: 3rem; text-align: center;">
+                    <p class="highlight" style="font-size: 1.5rem;">支持區塊勢，就是投資華語區塊鏈社區的「認知基礎建設」。</p>
+                    <p style="font-size: 1.1rem; color: #666;">Contact: hi@blocktrend.today</p>
                 </div>
             </div>
             <div class="page-number">8 / 8</div>
@@ -641,22 +643,14 @@
 
     <script>
         let currentSlide = 0;
-        const totalSlides = 8; // 更新為 8 頁
+        const totalSlides = 8; 
         const slider = document.getElementById('slider');
         const progressBar = document.getElementById('progress');
-        const fixedLogo = document.getElementById('fixed-logo');
 
         function updateSlide() {
             slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
             const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
             progressBar.style.width = `${progressPercentage}%`;
-
-            // Toggle fixed logo visibility (hide on cover, show on others)
-            if (currentSlide === 0) {
-                fixedLogo.style.display = 'none';
-            } else {
-                fixedLogo.style.display = 'block';
-            }
         }
 
         function nextSlide() {
@@ -673,7 +667,6 @@
             }
         }
 
-        // Keyboard Navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === 'Space') {
                 nextSlide();
@@ -682,7 +675,6 @@
             }
         });
 
-        // Touch Swipe Support
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -700,7 +692,6 @@
             if (touchEndX > touchStartX + 50) prevSlide();
         }
 
-        // Initial setup
         updateSlide();
     </script>
 </body>
