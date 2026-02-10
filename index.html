@@ -16,7 +16,7 @@
             --bg-color: #f8f9fa;
             --text-color: #333;
             --slide-bg: #ffffff;
-            --total-slides: 7; /* 更新為 7 頁 */
+            --total-slides: 7; 
         }
 
         * {
@@ -58,7 +58,7 @@
 
         /* 內容佈局 */
         .content-wrapper {
-            max-width: 1300px;
+            max-width: 1300px; /* 稍微加寬以容納更大字體 */
             width: 100%;
             height: auto;
             max-height: 90vh;
@@ -69,7 +69,7 @@
 
         .header {
             margin-bottom: 2.5rem;
-            border-left: 8px solid var(--accent-color);
+            border-left: 8px solid var(--accent-color); /* 加粗邊框 */
             padding-left: 2rem;
             flex-shrink: 0;
         }
@@ -83,7 +83,7 @@
         }
 
         h2 {
-            font-size: 3rem;
+            font-size: 3rem; /* 放大標題 */
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
@@ -91,14 +91,14 @@
         }
 
         h3 {
-            font-size: 1.8rem;
+            font-size: 1.8rem; /* 放大副標題 */
             color: #666;
             font-weight: 500;
             margin-top: 0.5rem;
         }
 
         p {
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* 放大內文 */
             line-height: 1.6;
             color: #444;
             margin-bottom: 1.5rem;
@@ -109,9 +109,9 @@
         }
 
         li {
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* 放大列表文字 */
             line-height: 1.6;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             padding-left: 2.2rem;
             position: relative;
         }
@@ -135,25 +135,24 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
+            gap: 3.5rem; /* 增加間距 */
             align-items: stretch;
             margin-top: 1.5rem;
         }
 
         .card {
             background: #fdfdfd;
-            padding: 3rem;
+            padding: 2.5rem; /* 增加內距 */
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             border: 1px solid #eee;
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
         
         .card h4 {
-            font-size: 1.8rem;
+            font-size: 1.8rem; /* 放大卡片標題 */
             margin-bottom: 1.5rem;
             color: var(--primary-color);
             font-weight: 700;
@@ -165,7 +164,7 @@
             padding: 1.5rem;
             border-left: 5px solid var(--accent-color);
             margin-top: auto;
-            font-size: 1.2rem;
+            font-size: 1.3rem; /* 放大引用文字 */
             color: #555;
             line-height: 1.5;
         }
@@ -219,9 +218,9 @@
             justify-content: center;
             overflow: hidden;
             border: 3px solid white;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-            opacity: 0;
-            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* 添加過渡動畫 */
+            opacity: 0; /* 預設隱藏，由 JS 控制 */
+            transform: translateY(20px); /* 預設往下偏移一點 */
         }
         .bottom-logo.visible {
             opacity: 1;
@@ -245,7 +244,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 6px; /* 改為 6px */
             background: rgba(0,0,0,0.08);
             z-index: 100;
         }
@@ -505,27 +504,68 @@
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>影響力擴散：從個人到決策核心</h2>
-                    <h3>讀者驅動的飛輪效應，讓我們跨越了同溫層。</h3>
+                    <h2>影響力觸及決策核心</h2>
+                    <h3>企業和政府都買單的好內容</h3>
                 </div>
 
                 <div class="grid-2" style="margin-top: 3rem;">
                     <div class="card">
                         <h4>🏛 政府機關付費訂閱</h4>
                         <p>台灣加密貨幣主管機關——<strong>金融監督管理委員會 (FSC)</strong> 已正式加入團體訂閱。</p>
-                        <p class="quote-box">意義：內容正在影響監管者的認知，協助在體制內推動合理的數位資產監管框架。</p>
+                        <p class="quote-box">內容正在影響監管者的認知，協助在體制內推動合理的數位資產監管框架。</p>
                     </div>
                     <div class="card">
                         <h4>🏢 企業團體訂閱</h4>
-                        <p>訂閱結構轉變：從個人延伸至<strong>金融機構與傳統企業</strong>。</p>
-                        <p class="quote-box">意義：證明內容對實務工作有具體幫助，而非僅供投機參考。</p>
+                        <p>客戶包含台灣第二大電信商<strong>台灣大哥大</strong>、<strong>國泰金控</strong>、<strong>DHK DAO</strong> 與 <strong>兆量富足教育協會</strong>。</p>
+                        <p class="quote-box">證明內容對實務工作有具體幫助，而非僅供投機參考。</p>
                     </div>
                 </div>
             </div>
             <div class="page-number">4 / 7</div>
         </div>
 
-        <!-- Slide 5: Vision -->
+        <!-- Slide 5: Social Proof -->
+        <div class="slide">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h2>社群驗證：讀者眼中的區塊勢</h2>
+                    <h3>2025 年內容滿意度調查回饋</h3>
+                </div>
+                
+                <p>我們不只創造內容，更解決了讀者的真實焦慮。</p>
+
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">務實</div>
+                        <div class="stat-label">「不盲目信仰，橋接去中心化與現實」</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">精準</div>
+                        <div class="stat-label">「技術與白話的平衡，節省大量時間」</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">必需</div>
+                        <div class="stat-label">「工作上需要的可靠資訊來源」</div>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="margin-top: 2rem;">
+                    <div class="card" style="background: #f9f9f9; padding: 2rem;">
+                        <h4>橋接兩邊的世界</h4>
+                        <p class="quote-box">「務實：不是無條件支持去中心化或反中心化，在幣圈/鏈圈分化的情況，<span class="highlight">橋接兩邊的世界</span>（這也是我的工作之一）。」</p>
+                        <p style="text-align: right; font-size: 1.2rem; color: #999; margin-top: 0.5rem;">— 從業人員回饋</p>
+                    </div>
+                    <div class="card" style="background: #f9f9f9; padding: 2rem;">
+                        <h4>難以取代的洞察</h4>
+                        <p class="quote-box">「技術與白話的解釋平衡剛好，不會太淺也不會太艱澀... <span class="highlight">邏輯自洽，自我修正</span>。」</p>
+                        <p style="text-align: right; font-size: 1.2rem; color: #999; margin-top: 0.5rem;">— 訂閱 2 年以上讀者</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">5 / 7</div>
+        </div>
+
+        <!-- Slide 6: Vision -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -548,10 +588,10 @@
                     </div>
                 </div>
             </div>
-            <div class="page-number">5 / 7</div>
+            <div class="page-number">6 / 7</div>
         </div>
 
-        <!-- Slide 6: Budget (New) -->
+        <!-- Slide 7: Budget -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -583,24 +623,10 @@
                     <p style="font-size: 1.5rem; color: #666;">Contact: hi@blocktrend.today</p>
                 </div>
             </div>
-            <div class="page-number">6 / 7</div>
+            <div class="page-number">7 / 7</div>
         </div>
 
-        <!-- Slide 7: Contact/End (Optional - kept if needed, but we have 6 content slides + cover) -->
-        <!-- Note: Based on request, the new structure has 6 slides total in content flow, but we can keep a final "Thank you" or merge. 
-             The previous slide 6 is now the Budget slide. 
-             Let's keep it at 7 total slides as per code structure: Cover + 5 Content Slides + Final/Budget? 
-             Wait, currently:
-             1. Cover
-             2. Problem
-             3. Flywheel
-             4. Impact
-             5. Vision
-             6. Budget (Last content slide)
-             7. (Currently Budget in old code, let's remove or make it a "Thank You" / "Q&A" slide?) 
-             
-             Actually, let's just make Slide 7 the dedicated "Contact / Q&A" slide to close gracefully.
-        -->
+        <!-- Slide 8: Contact/End -->
         <div class="slide">
             <div class="content-wrapper" style="text-align: center; align-items: center;">
                 <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" alt="Blocktrend Logo" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 2rem; border: 4px solid #eee;">
