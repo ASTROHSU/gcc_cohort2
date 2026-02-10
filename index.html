@@ -16,7 +16,7 @@
             --bg-color: #f8f9fa;
             --text-color: #333;
             --slide-bg: #ffffff;
-            --total-slides: 7; 
+            --total-slides: 7; /* 更新為 7 頁 */
         }
 
         * {
@@ -111,7 +111,7 @@
         li {
             font-size: 1.5rem;
             line-height: 1.6;
-            margin-bottom: 1.2rem; /* 調整行距 */
+            margin-bottom: 1.2rem;
             padding-left: 2.2rem;
             position: relative;
         }
@@ -315,7 +315,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* 確保內容從上開始 */
+            justify-content: flex-start;
         }
         .cycle-icon {
             font-size: 4rem;
@@ -338,21 +338,19 @@
             z-index: 1;
         }
         
-        /* 針對飛輪文字的修正 */
         .cycle-step h4 {
-            font-size: 2.2rem; /* 標題放大 */
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
         .cycle-step p {
-            font-size: 1.3rem; /* 內文縮小 */
+            font-size: 1.3rem;
             line-height: 1.5;
             color: #666;
             margin-bottom: 0;
         }
 
-        /* 循環背景線 */
         .flywheel-bg {
             position: absolute;
             top: 50%;
@@ -431,7 +429,7 @@
             <div class="page-number">1 / 7</div>
         </div>
 
-        <!-- Slide 2: Public Problem (Redesigned) -->
+        <!-- Slide 2: Public Problem -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -461,7 +459,7 @@
             <div class="page-number">2 / 7</div>
         </div>
 
-        <!-- Slide 3: Irreplaceability (Virtuous Cycle) -->
+        <!-- Slide 3: Irreplaceability -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -476,7 +474,7 @@
                     <div class="cycle-step">
                         <div class="cycle-icon">🛡️</div>
                         <h4>1. 付費牆篩選</h4>
-                        <p>篩選出追求高品質內容的讀者。</p>
+                        <p style="font-size: 1.4rem;">篩選出追求高品質內容的讀者。</p>
                     </div>
                     
                     <!-- Arrow -->
@@ -486,7 +484,7 @@
                     <div class="cycle-step">
                         <div class="cycle-icon">🗳️</div>
                         <h4>2. 讀者回饋</h4>
-                        <p>讀者透過續訂與互動，決定他們在乎的議題（如隱私、應用）。</p>
+                        <p style="font-size: 1.4rem;">讀者透過續訂與互動，決定他們在乎的議題（如隱私、應用）。</p>
                     </div>
                     
                     <!-- Arrow -->
@@ -496,7 +494,7 @@
                     <div class="cycle-step">
                         <div class="cycle-icon">💎</div>
                         <h4>3. 產出獨家價值</h4>
-                        <p>針對需求產出的內容，正是讀者願意付費的核心價值。</p>
+                        <p style="font-size: 1.4rem;">針對需求產出的內容，正是讀者願意付費的核心價值。</p>
                     </div>
                 </div>
             </div>
@@ -527,48 +525,7 @@
             <div class="page-number">4 / 7</div>
         </div>
 
-        <!-- Slide 5: Social Proof -->
-        <div class="slide">
-            <div class="content-wrapper">
-                <div class="header">
-                    <h2>社群驗證：讀者眼中的區塊勢</h2>
-                    <h3>2025 年內容滿意度調查回饋</h3>
-                </div>
-                
-                <p>我們不只創造內容，更解決了讀者的真實焦慮。</p>
-
-                <div class="stat-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">務實</div>
-                        <div class="stat-label">「不盲目信仰，橋接去中心化與現實」</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">精準</div>
-                        <div class="stat-label">「技術與白話的平衡，節省大量時間」</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">必需</div>
-                        <div class="stat-label">「工作上需要的可靠資訊來源」</div>
-                    </div>
-                </div>
-
-                <div class="grid-2" style="margin-top: 2rem;">
-                    <div class="card" style="background: #f9f9f9; padding: 2rem;">
-                        <h4>橋接兩邊的世界</h4>
-                        <p class="quote-box">「務實：不是無條件支持去中心化或反中心化，在幣圈/鏈圈分化的情況，<span class="highlight">橋接兩邊的世界</span>（這也是我的工作之一）。」</p>
-                        <p style="text-align: right; font-size: 1.2rem; color: #999; margin-top: 0.5rem;">— 從業人員回饋</p>
-                    </div>
-                    <div class="card" style="background: #f9f9f9; padding: 2rem;">
-                        <h4>難以取代的洞察</h4>
-                        <p class="quote-box">「技術與白話的解釋平衡剛好，不會太淺也不會太艱澀... <span class="highlight">邏輯自洽，自我修正</span>。」</p>
-                        <p style="text-align: right; font-size: 1.2rem; color: #999; margin-top: 0.5rem;">— 訂閱 2 年以上讀者</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-number">5 / 7</div>
-        </div>
-
-        <!-- Slide 6: Vision -->
+        <!-- Slide 5: Vision -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -591,48 +548,67 @@
                     </div>
                 </div>
             </div>
-            <div class="page-number">6 / 7</div>
+            <div class="page-number">5 / 7</div>
         </div>
 
-        <!-- Slide 7: Budget -->
+        <!-- Slide 6: Budget (New) -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>資金預算與里程碑</h2>
+                    <h2>資金預算與執行里程碑</h2>
+                    <h3>擴大產能，讓區塊勢成為永續的公共財</h3>
                 </div>
 
-                <p>申請金額 <strong>$9,000 USD</strong>，旨在製作與推廣高品質的開源/公共內容。</p>
+                <div class="grid-2" style="margin-top: 2rem;">
+                    <div class="card" style="background-color: #fff5f5; border-left: 10px solid #e74c3c;">
+                        <h4 style="color: #c0392b;">為什麼需要這筆資金？(The Ask)</h4>
+                        <ul style="font-size: 1.4rem;">
+                            <li><strong>突破個人極限：</strong> 資金將用於聘請<strong>內容協作夥伴</strong>（編輯/後製），避免創作者過勞 (Burnout)。</li>
+                            <li><strong>多媒體深化：</strong> 升級影音設備，將文字轉化為 <strong>Podcast 與短影音</strong>，擴大受眾。</li>
+                            <li><strong>維持低門檻：</strong> 透過資助分攤成本，維持平價訂閱，確保學生與公部門都能無負擔獲取。</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="background-color: #f0f9ff; border-left: 10px solid var(--accent-color);">
+                        <h4 style="color: var(--accent-color);">預算分配與里程碑 ($9,000)</h4>
+                        <ul style="font-size: 1.4rem;">
+                            <li><strong>人力與製作 (50%)：</strong> 聘請兼職編輯與影音剪輯，產出 4 集精緻 Podcast 與深度專題。</li>
+                            <li><strong>設備與基建 (20%)：</strong> 升級錄音介面與攝影器材。</li>
+                            <li><strong>公共推廣 (30%)：</strong> 舉辦 2 場實體沙龍，並將 GCC 關注議題報告設為 <strong>CC 授權免費公開</strong>。</li>
+                        </ul>
+                    </div>
+                </div>
 
-                <table class="budget-table">
-                    <thead>
-                        <tr>
-                            <th width="20%">項目</th>
-                            <th width="50%">說明</th>
-                            <th width="30%">預期產出</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>深度專題製作</strong><br>(40%)</td>
-                            <td>針對 GCC 關注的「隱私技術」與「數位主權」製作深度報告。</td>
-                            <td>4 篇深度長文<br>(免費公開)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Podcast 公共對話</strong><br>(30%)</td>
-                            <td>邀請開發者與政策制定者對談，探討公共數位基礎建設。</td>
-                            <td>4 集 Podcast 節目<br>(預估下載量 40k+)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>教育推廣與活動</strong><br>(30%)</td>
-                            <td>舉辦線上/線下小型分享會，連結 Web2 決策者與 Web3 建設者。</td>
-                            <td>2 場專題講座<br>(涵蓋金管會/企業代表)</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div style="margin-top: 4rem; text-align: center;">
+                <div style="margin-top: 3rem; text-align: center;">
                     <p class="highlight" style="font-size: 2rem;">支持區塊勢，就是投資華語區塊鏈社區的「認知基礎建設」。</p>
                     <p style="font-size: 1.5rem; color: #666;">Contact: hi@blocktrend.today</p>
+                </div>
+            </div>
+            <div class="page-number">6 / 7</div>
+        </div>
+
+        <!-- Slide 7: Contact/End (Optional - kept if needed, but we have 6 content slides + cover) -->
+        <!-- Note: Based on request, the new structure has 6 slides total in content flow, but we can keep a final "Thank you" or merge. 
+             The previous slide 6 is now the Budget slide. 
+             Let's keep it at 7 total slides as per code structure: Cover + 5 Content Slides + Final/Budget? 
+             Wait, currently:
+             1. Cover
+             2. Problem
+             3. Flywheel
+             4. Impact
+             5. Vision
+             6. Budget (Last content slide)
+             7. (Currently Budget in old code, let's remove or make it a "Thank You" / "Q&A" slide?) 
+             
+             Actually, let's just make Slide 7 the dedicated "Contact / Q&A" slide to close gracefully.
+        -->
+        <div class="slide">
+            <div class="content-wrapper" style="text-align: center; align-items: center;">
+                <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" alt="Blocktrend Logo" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 2rem; border: 4px solid #eee;">
+                <h1 style="font-size: 4rem; margin-bottom: 1rem;">Thank You</h1>
+                <p style="font-size: 2rem; color: #666;">Q & A</p>
+                <div style="margin-top: 3rem;">
+                    <p style="font-size: 1.5rem;">hi@blocktrend.today</p>
+                    <p style="font-size: 1.5rem;">blocktrend.today</p>
                 </div>
             </div>
             <div class="page-number">7 / 7</div>
@@ -662,8 +638,8 @@
             const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
             progressBar.style.width = `${progressPercentage}%`;
 
-            // Logic to toggle Fixed Logo: Hide on Cover (Slide 0), Show on others
-            if (currentSlide === 0) {
+            // Logic to toggle Fixed Logo: Hide on Cover (Slide 0) and End (Slide 6), Show on others
+            if (currentSlide === 0 || currentSlide === 6) {
                 fixedLogo.classList.remove('visible');
             } else {
                 fixedLogo.classList.add('visible');
