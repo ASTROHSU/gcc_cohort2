@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>區塊勢 Blocktrend - GCC Demo Day Presentation</title>
     <meta name="description" content="區塊勢 GCC Grant 申請簡報">
+    <!-- 1. 新增 Favicon -->
     <link rel="icon" href="https://i.urusai.cc/c8Wi8.png" type="image/png">
     
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -12,20 +13,10 @@
         :root {
             --primary-color: #2c3e50;
             --accent-color: #e67e22; /* 區塊勢橘色系 */
-            --bg-color: #f1f5f9;
+            --bg-color: #f8f9fa;
             --text-color: #333;
             --slide-bg: #ffffff;
             --total-slides: 8; 
-            
-            /* Footer Design Colors */
-            --footer-bg: #ffffff;
-            --footer-border: #e2e8f0;
-            --slate-100: #f1f5f9;
-            --slate-200: #e2e8f0;
-            --slate-300: #cbd5e1;
-            --slate-700: #334155;
-            --slate-800: #1e293b;
-            --active-blue: #e67e22; 
         }
 
         * {
@@ -36,85 +27,55 @@
 
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            overflow: hidden;
+            background-color: #1a1a1a;
+            overflow: hidden; /* 防止滾動 */
             color: var(--text-color);
             height: 100vh;
             width: 100vw;
             font-size: 16px; 
-            display: flex; 
-            flex-direction: column;
-        }
-
-        /* --- 主要內容區塊 (Viewport) --- */
-        .main-viewport {
-            flex: 1; 
-            width: 100%;
-            position: relative;
-            overflow: hidden; /* 隱藏水平溢出 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f8fafc;
-            padding: 2vh 2vw; /* 給卡片一點呼吸空間 */
         }
 
         /* 幻燈片容器 */
         .slider-container {
             display: flex;
-            width: calc(100% * var(--total-slides)); 
-            height: 100%;
+            width: calc(100vw * var(--total-slides)); 
+            height: 100vh;
             transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
-        /* 單張幻燈片外框 */
+        /* 單張幻燈片樣式 */
         .slide {
-            width: 100%; /* 相對視窗寬度 */
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            flex-shrink: 0; /* 防止被壓縮 */
-        }
-
-        /* 內容卡片 (懸浮卡片效果) */
-        .slide-card {
-            background: white;
-            width: 100%;
-            max-width: 1400px; /* 限制最大寬度，避免在大螢幕太散 */
-            height: 100%;
-            border-radius: 24px; /* 圓角 */
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* 陰影 */
-            border: 1px solid #fff;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 3rem 5rem;
+            padding: 0 5vw;
+            background-color: var(--slide-bg);
             position: relative;
-            overflow-y: auto; /* 關鍵：內容過長時卡片內部滾動 */
         }
 
         /* 內容佈局 */
         .content-wrapper {
+            max-width: 1200px;
             width: 100%;
-            max-width: 1100px;
-            /* 取消固定高度，讓內容自然撐開 */
+            height: auto;
+            max-height: 90vh; /* 確保內容不超出視窗 */
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin: auto; /* 垂直居中 */
         }
 
         .header {
             margin-bottom: 2rem;
             border-left: 6px solid var(--accent-color);
             padding-left: 1.5rem;
+            flex-shrink: 0;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 900;
             color: var(--primary-color);
             line-height: 1.2;
@@ -122,25 +83,25 @@
         }
 
         h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             line-height: 1.3;
         }
 
         h3 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #666;
             font-weight: 500;
             margin-top: 0.25rem;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             line-height: 1.6;
             color: #444;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.25rem;
         }
 
         ul {
@@ -148,7 +109,7 @@
         }
 
         li {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             line-height: 1.5;
             margin-bottom: 0.8rem;
             padding-left: 1.8rem;
@@ -208,6 +169,7 @@
             line-height: 1.4;
         }
 
+        /* 數據展示 */
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -239,22 +201,104 @@
             font-weight: 500;
         }
 
-        /* 封面特殊樣式 */
-        .slide-cover .slide-card {
+        /* --- 2. 底部 Logo 樣式 (取代左上角) --- */
+        .bottom-logo {
+            position: fixed;
+            bottom: 20px; /* 位於進度條上方一點點 */
+            left: 20px;
+            width: 45px;
+            height: 45px;
+            z-index: 101;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .bottom-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 導航控制 */
+        .nav-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: #ccc;
+            border: none;
+            width: 50px;
+            height: 100px;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .nav-btn:hover {
+            color: var(--accent-color);
+            background: rgba(0,0,0,0.02);
+        }
+
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        /* --- 3. 進度條優化 --- */
+        .progress-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px; /* 加厚至 12px */
+            background: rgba(0,0,0,0.08); /* 稍微加深背景 */
+            z-index: 100;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.3s ease-out;
+            /* 增加一點光澤感 */
+            background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+            background-size: 1rem 1rem;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 1rem;
+            color: #999;
+            font-weight: 700;
+        }
+
+        /* 封面 */
+        .slide-cover {
             background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
             color: white;
-            border: none;
+            text-align: center;
         }
-        .slide-cover h1 { color: white; text-align: center; font-size: 3.5rem; margin-bottom: 1rem; }
-        .slide-cover p { color: rgba(255,255,255,0.9); text-align: center; }
-        .slide-cover .header { border: none; padding: 0; margin-bottom: 3rem; text-align: center; }
+        .slide-cover h1, .slide-cover h2, .slide-cover h3, .slide-cover p {
+            color: white;
+            text-align: center;
+        }
+        .slide-cover .header {
+            border-left: none;
+            padding: 0;
+            margin-bottom: 3rem;
+        }
         .cover-logo {
             width: 200px;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             filter: brightness(0) invert(1);
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         /* 循環圖示 */
@@ -296,472 +340,314 @@
             border-bottom: 2px solid var(--accent-color);
         }
 
-        /* --- Footer Design --- */
-        .footer-nav {
-            height: 80px; 
-            background: var(--footer-bg);
-            border-top: 1px solid var(--footer-border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 2rem;
-            box-shadow: 0 -4px 10px -2px rgba(0, 0, 0, 0.05);
-            z-index: 200;
-            flex-shrink: 0;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .footer-logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .footer-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .footer-brand {
-            font-weight: 800;
-            color: var(--slate-800);
-            font-size: 1.4rem;
-            letter-spacing: -0.025em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-controls {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .nav-arrow-btn {
-            background: var(--slate-100);
-            color: var(--slate-700);
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .nav-arrow-btn:hover {
-            background: var(--slate-200);
-            transform: scale(1.05);
-        }
-        .nav-arrow-btn:active {
-            transform: scale(0.95);
-        }
-        .nav-arrow-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-        .nav-arrow-btn svg {
-            width: 24px;
-            height: 24px;
-            stroke-width: 2.5;
-        }
-
-        .progress-dots {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-        }
-        .dot {
-            height: 8px;
-            border-radius: 999px;
-            background: var(--slate-300);
-            width: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .dot.active {
-            background: var(--active-blue);
-            width: 40px;
-        }
-        .dot:hover:not(.active) {
-            background: #94a3b8;
-            transform: scale(1.2);
-        }
-
-        /* RWD */
         @media (max-height: 800px) {
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; margin-bottom: 0.5rem; }
             p, li { font-size: 1.1rem; margin-bottom: 0.5rem; }
             .header { margin-bottom: 1rem; }
-            .slide-card { padding: 2rem 3rem; }
+            .slide { padding: 0 3rem; }
+            .card { padding: 1.5rem; }
+            .cycle-step { padding: 1.5rem; }
+            .cycle-step div { font-size: 2.5rem !important; margin-bottom: 0.5rem !important; }
+            .stat-number { font-size: 1.5rem; }
         }
 
         @media (max-width: 768px) {
-            .footer-brand { font-size: 1.1rem; }
-            .footer-nav { padding: 0 1rem; height: 70px; }
-            .progress-dots { display: none; }
+            .slider-container { width: 100vw; flex-direction: column; overflow-y: auto; height: auto; display: block; }
+            .slide { height: auto; min-height: 100vh; padding: 4rem 2rem; position: relative; width: 100%; top: 0; left: 0; }
             .grid-2, .stat-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .cycle-container { flex-direction: column; }
             .cycle-arrow { transform: rotate(90deg); margin: 0.5rem 0; }
-            .slide-card { padding: 2rem; border-radius: 0; width: 100%; height: 100%; box-shadow: none; border: none; }
-            .main-viewport { padding: 0; }
+            .nav-btn, .progress-container, .bottom-logo { display: none; } /* 手機版通常會隱藏底部條以免擋住內容 */
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Content Viewport -->
-    <div class="main-viewport">
-        <div class="slider-container" id="slider">
-            
-            <!-- Slide 1: Cover -->
-            <div class="slide slide-cover">
-                <div class="slide-card">
-                    <div class="content-wrapper">
-                        <img src="https://i.urusai.cc/c8Wi8.png" alt="Blocktrend Logo" class="cover-logo">
-                        <div class="header">
-                            <h1>華語區塊鏈知識的公共基礎建設</h1>
-                        </div>
-                        <div>
-                            <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">GCC Public Goods Grant Cohort 2 Demo Day</p>
-                            <p style="font-size: 1.25rem; font-weight: 500;">許明恩</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 2: Public Issue -->
-            <div class="slide">
-                <div class="slide-card">
-                    <div class="content-wrapper">
-                        <div class="header">
-                            <h2>公共議題</h2>
-                        </div>
-                        
-                        <div style="text-align: center; margin-bottom: 2rem;">
-                            <p style="font-size: 1.5rem; font-weight: 700;">
-                                在 AI 問世後，資訊不是太少，而是<span class="highlight">太多</span>。
-                            </p>
-                        </div>
-
-                        <div class="grid-2">
-                            <div class="card" style="border-left: 6px solid #bdc3c7;">
-                                <h4>現狀：資訊焦慮</h4>
-                                <ul>
-                                    <li>資訊爆炸，內容農場與 AI 生成內容氾濫。</li>
-                                    <li>讀者被迫花費大量時間篩選，卻只得到雜訊。</li>
-                                    <li>「更多」的資訊已不再是解方，而是負擔。</li>
-                                </ul>
-                            </div>
-                            <div class="card" style="border-left: 6px solid var(--accent-color);">
-                                <h4>解方：少即是多</h4>
-                                <ul>
-                                    <li>區塊勢不追求海量報導，只提供經過驗證的洞察。</li>
-                                    <li>我們替讀者節省時間，提供網路上「最有價值的 10 分鐘」。</li>
-                                    <li>在這個時代，<strong>篩選 (Curation)</strong> 才是真正的價值。</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3: Business Model -->
-            <div class="slide">
-                <div class="slide-card">
-                    <div class="content-wrapper">
-                        <div class="header">
-                            <h2>商業模式決定資訊品質</h2>
-                        </div>
-                        
-                        <p>為什麼媒體會變成企業的傳聲筒？因為商業模式錯了。</p>
-
-                        <div class="grid-2">
-                            <div class="card" style="background-color: #fff5f5; border: none; border-left: 6px solid #e74c3c;">
-                                <h4 style="color: #c0392b;">傳統模式：流量變現</h4>
-                                <p><strong>邏輯：</strong>把讀者騙進來，賣給廣告商。</p>
-                                <ul>
-                                    <li>目標：最大化點擊率 (Clickbait)。</li>
-                                    <li>結果：標題殺人、內容農場化。</li>
-                                    <li>關係：讀者是「產品」，廣告商才是客戶。</li>
-                                </ul>
-                            </div>
-                            <div class="card" style="background-color: #f0f9ff; border: none; border-left: 6px solid var(--accent-color);">
-                                <h4 style="color: var(--accent-color);">區塊勢模式：內容付費</h4>
-                                <p><strong>邏輯：</strong>用長時間證明訂閱價值，建立信任。</p>
-                                <ul>
-                                    <li>目標：最大化信任感與續訂率。</li>
-                                    <li>結果：深入探討硬核議題、立場獨立中立。</li>
-                                    <li>關係：讀者就是「老闆」，我們只對讀者負責。</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4: Reader Defined Media -->
-            <div class="slide">
-                <div class="slide-card">
-                    <div class="content-wrapper">
-                        <div class="header">
-                            <h2>由讀者定義的媒體</h2>
-                        </div>
-                        
-                        <p>我們不追逐熱點，而是建立一個正向的生態循環。</p>
-
-                        <div class="cycle-container">
-                            <div class="cycle-step">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
-                                <h4>1. 篩選</h4>
-                                <p>付費牆篩選出「不求炒幣資訊」的高品質讀者。</p>
-                            </div>
-                            <div class="cycle-arrow">➡</div>
-                            <div class="cycle-step">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">🗳️</div>
-                                <h4>2. 投票</h4>
-                                <p>讀者用訂閱費與開信率，告訴我他們在乎什麼。</p>
-                            </div>
-                            <div class="cycle-arrow">➡</div>
-                            <div class="cycle-step">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>
-                                <h4>3. 產出</h4>
-                                <p>針對真實需求創作，而非想像中的流量密碼。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 5: Impact & Traction -->
-            <div class="slide">
-                <div class="slide-card">
-                    <div class="content-wrapper">
-                        <div class="header">
-                            <h2>影響力與驗證數據</h2>
-                        </div>
-
-                        <div style="background: #f0f4f8; padding: 1.5rem 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                            <p style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0;">
-                                <span style="font-size: 3rem; font-weight: bold; color: var(--accent-color);">2017</span> 年至今的信任積累
-                            </p>
-                            <p style="margin-bottom: 0;">不僅服務個人，更深入<strong>決策核心</strong>。</p>
-                        </div>
-
-                        <div class="grid-2">
-                            <div class="card">
-                                <h4>🏛 政府機關付費訂閱</h4>
-                                <p>台灣加密貨幣主管機關——<strong>金融監督管理委員會 (FSC)</strong> 已正式加入團體訂閱。</p>
-                                <p class="quote-box">意義：內容正在影響監管者的認知，協助在體制內推動合理的數位資產監管框架。</p>
-                            </div>
-                            <div class="card">
-                                <h4>🏢 從個人到企業</h4>
-                                <p>訂閱戶結構正在改變：越來越多傳統企業與 Web3 原生公司進行團體訂閱。</p>
-                                <p class="quote-box">趨勢：證明市場正在從「個人投機」轉向「企業應用」與「經濟建設」。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 6: Social Proof -->
-            <div class="slide">
-                <div class="slide-card">
-                    <div class="content-wrapper">
-                        <div class="header">
-                            <h2>社群驗證：讀者眼中的區塊勢</h2>
-                            <h3>2025 年內容滿意度調查回饋</h3>
-                        </div>
-                        
-                        <p>我們不只創造內容，更解決了讀者的真實焦慮。</p>
-
-                        <div class="stat-grid">
-                            <div class="stat-item">
-                                <div class="stat-number">務實</div>
-                                <div class="stat-label">「不盲目信仰，橋接去中心化與現實」</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">精準</div>
-                                <div class="stat-label">「技術與白話的平衡，節省大量時間」</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">必需</div>
-                                <div class="stat-label">「工作上需要的可靠資訊來源」</div>
-                            </div>
-                        </div>
-
-                        <div class="grid-2" style="margin-top: 2rem;">
-                            <div class="card" style="background: #f9f9f9; padding: 1.5rem;">
-                                <h4>橋接兩邊的世界</h4>
-                                <p class="quote-box">「務實：不是無條件支持去中心化或反中心化，在幣圈/鏈圈分化的情況，<span class="highlight">橋接兩邊的世界</span>（這也是我的工作之一）。」</p>
-                                <p style="text-align: right; font-size: 0.9rem; color: #999; margin-top: 0.5rem;">— 從業人員回饋</p>
-                            </div>
-                            <div class="card" style="background: #f9f9f9; padding: 1.5rem;">
-                                <h4>難以取代的洞察</h4>
-                                <p class="quote-box">「技術與白話的解釋平衡剛好，不會太淺也不會太艱澀... <span class="highlight">邏輯自洽，自我修正</span>。」</p>
-                                <p style="text-align: right; font-size: 0.9rem; color: #999; margin-top: 0.5rem;">— 訂閱 2 年以上讀者</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 7: Vision -->
-            <div class="slide">
-                <div class="slide-card">
-                    <div class="content-wrapper">
-                        <div class="header">
-                            <h2>未來願景</h2>
-                        </div>
-
-                        <p>隨著市場成熟，區塊勢將引領讀者關注下一階段的典範轉移。</p>
-
-                        <div style="display: flex; gap: 2rem; margin-top: 2rem;">
-                            <div style="flex: 1; padding: 2rem; background: #fff; border: 1px solid #ddd; border-radius: 12px;">
-                                <h4 style="color:#999; margin-bottom:0.5rem;">過去</h4>
-                                <h3 style="margin-bottom:1rem; font-size: 1.5rem;">DeFi 與 金融投機</h3>
-                                <p>關注幣價、年化報酬率、單點式的金融應用。</p>
-                            </div>
-                            <div style="display:flex; align-items:center; color:var(--accent-color); font-size: 2rem;">➡</div>
-                            <div style="flex: 1; padding: 2rem; background: #fff; border: 4px solid var(--accent-color); border-radius: 12px; box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);">
-                                <h4 style="color:var(--accent-color); margin-bottom:0.5rem;">未來 (2025-2026)</h4>
-                                <h3 style="margin-bottom:1rem; font-size: 1.5rem;">Web3 經濟體與數位基建</h3>
-                                <p>關注<strong>隱私技術</strong>、<strong>公共財</strong>、以及區塊鏈如何嵌入實體經濟。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 8: Budget -->
-            <div class="slide">
-                <div class="slide-card">
-                    <div class="content-wrapper">
-                        <div class="header">
-                            <h2>資金預算與里程碑</h2>
-                        </div>
-
-                        <p>申請金額 <strong>$9,000 USD</strong>，旨在製作與推廣高品質的開源/公共內容。</p>
-
-                        <table class="budget-table">
-                            <thead>
-                                <tr>
-                                    <th width="20%">項目</th>
-                                    <th width="50%">說明</th>
-                                    <th width="30%">預期產出</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>深度專題製作</strong><br>(40%)</td>
-                                    <td>針對 GCC 關注的「隱私技術」與「數位主權」製作深度報告。</td>
-                                    <td>4 篇深度長文<br>(免費公開)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Podcast 公共對話</strong><br>(30%)</td>
-                                    <td>邀請開發者與政策制定者對談，探討公共數位基礎建設。</td>
-                                    <td>4 集 Podcast 節目<br>(預估下載量 40k+)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>教育推廣與活動</strong><br>(30%)</td>
-                                    <td>舉辦線上/線下小型分享會，連結 Web2 決策者與 Web3 建設者。</td>
-                                    <td>2 場專題講座<br>(涵蓋金管會/企業代表)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div style="margin-top: 3rem; text-align: center;">
-                            <p class="highlight" style="font-size: 1.5rem;">支持區塊勢，就是投資華語區塊鏈社區的「認知基礎建設」。</p>
-                            <p style="font-size: 1.1rem; color: #666;">Contact: hi@blocktrend.today</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+    <!-- Logo (Fixed Bottom Left) -->
+    <div class="bottom-logo">
+        <img src="https://i.urusai.cc/c8Wi8.png" alt="Blocktrend Logo">
     </div>
 
-    <!-- Fixed Footer Navigation -->
-    <div class="footer-nav">
-        <!-- Logo & Brand -->
-        <div class="footer-left">
-            <div class="footer-logo">
-                <img src="https://scontent.ftpe8-4.fna.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent.ftpe8-4.fna&_nc_gid=53alu_871PkE2Kvey-Sqag&oh=00_AfufOigIzgM2PTHcR7rpHUnPQPudcTcDetToBbHzM5wqfg&oe=6990CDF9" alt="Blocktrend Logo">
+    <div class="slider-container" id="slider">
+        
+        <!-- Slide 1: Cover -->
+        <div class="slide slide-cover">
+            <div class="content-wrapper" style="align-items: center;">
+                <img src="https://i.urusai.cc/c8Wi8.png" alt="Blocktrend Logo" class="cover-logo">
+                <div class="header">
+                    <h1>華語區塊鏈知識的公共基礎建設</h1>
+                </div>
+                <div style="margin-top: 3rem; opacity: 0.9;">
+                    <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">GCC Public Goods Grant Cohort 2 Demo Day</p>
+                    <p style="font-size: 1.25rem; font-weight: 500;">許明恩</p>
+                </div>
             </div>
-            <div class="footer-brand">
-                BLOCKTREND
-            </div>
+            <div class="page-number">1 / 8</div>
         </div>
 
-        <!-- Controls -->
-        <div class="footer-controls">
-            <button class="nav-arrow-btn" onclick="prevSlide()" id="prevBtn" title="Previous Slide">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            
-            <div class="progress-dots" id="dots-container">
-                <!-- Dots generated by JS -->
-            </div>
+        <!-- Slide 2: Public Issue -->
+        <div class="slide">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h2>公共議題</h2>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <p style="font-size: 1.5rem; font-weight: 700;">
+                        在 AI 問世後，資訊不是太少，而是<span class="highlight">太多</span>。
+                    </p>
+                </div>
 
-            <button class="nav-arrow-btn" onclick="nextSlide()" id="nextBtn" title="Next Slide">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
+                <div class="grid-2">
+                    <div class="card" style="border-left: 6px solid #bdc3c7;">
+                        <h4>現狀：資訊焦慮</h4>
+                        <ul>
+                            <li>資訊爆炸，內容農場與 AI 生成內容氾濫。</li>
+                            <li>讀者被迫花費大量時間篩選，卻只得到雜訊。</li>
+                            <li>「更多」的資訊已不再是解方，而是負擔。</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="border-left: 6px solid var(--accent-color);">
+                        <h4>解方：少即是多</h4>
+                        <ul>
+                            <li>區塊勢不追求海量報導，只提供經過驗證的洞察。</li>
+                            <li>我們替讀者節省時間，提供網路上「最有價值的 10 分鐘」。</li>
+                            <li>在這個時代，<strong>篩選 (Curation)</strong> 才是真正的價值。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">2 / 8</div>
         </div>
+
+        <!-- Slide 3: Business Model -->
+        <div class="slide">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h2>商業模式決定資訊品質</h2>
+                </div>
+                
+                <p>為什麼媒體會變成企業的傳聲筒？因為商業模式錯了。</p>
+
+                <div class="grid-2">
+                    <div class="card" style="background-color: #fff5f5; border: none; border-left: 6px solid #e74c3c;">
+                        <h4 style="color: #c0392b;">傳統模式：流量變現</h4>
+                        <p><strong>邏輯：</strong>把讀者騙進來，賣給廣告商。</p>
+                        <ul>
+                            <li>目標：最大化點擊率 (Clickbait)。</li>
+                            <li>結果：標題殺人、內容農場化。</li>
+                            <li>關係：讀者是「產品」，廣告商才是客戶。</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="background-color: #f0f9ff; border: none; border-left: 6px solid var(--accent-color);">
+                        <h4 style="color: var(--accent-color);">區塊勢模式：內容付費</h4>
+                        <p><strong>邏輯：</strong>用長時間證明訂閱價值，建立信任。</p>
+                        <ul>
+                            <li>目標：最大化信任感與續訂率。</li>
+                            <li>結果：深入探討硬核議題、立場獨立中立。</li>
+                            <li>關係：讀者就是「老闆」，我們只對讀者負責。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">3 / 8</div>
+        </div>
+
+        <!-- Slide 4: Reader Defined Media -->
+        <div class="slide">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h2>由讀者定義的媒體</h2>
+                </div>
+                
+                <p>我們不追逐熱點，而是建立一個正向的生態循環。</p>
+
+                <div class="cycle-container">
+                    <div class="cycle-step">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+                        <h4>1. 篩選</h4>
+                        <p>付費牆篩選出「不求炒幣資訊」的高品質讀者。</p>
+                    </div>
+                    <div class="cycle-arrow">➡</div>
+                    <div class="cycle-step">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🗳️</div>
+                        <h4>2. 投票</h4>
+                        <p>讀者用訂閱費與開信率，告訴我他們在乎什麼。</p>
+                    </div>
+                    <div class="cycle-arrow">➡</div>
+                    <div class="cycle-step">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>
+                        <h4>3. 產出</h4>
+                        <p>針對真實需求創作，而非想像中的流量密碼。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">4 / 8</div>
+        </div>
+
+        <!-- Slide 5: Impact & Traction -->
+        <div class="slide">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h2>影響力與驗證數據</h2>
+                </div>
+
+                <div style="background: #f0f4f8; padding: 1.5rem 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                    <p style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0;">
+                        <span style="font-size: 3rem; font-weight: bold; color: var(--accent-color);">2017</span> 年至今的信任積累
+                    </p>
+                    <p style="margin-bottom: 0;">不僅服務個人，更深入<strong>決策核心</strong>。</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🏛 政府機關付費訂閱</h4>
+                        <p>台灣加密貨幣主管機關——<strong>金融監督管理委員會 (FSC)</strong> 已正式加入團體訂閱。</p>
+                        <p class="quote-box">意義：內容正在影響監管者的認知，協助在體制內推動合理的數位資產監管框架。</p>
+                    </div>
+                    <div class="card">
+                        <h4>🏢 從個人到企業</h4>
+                        <p>訂閱戶結構正在改變：越來越多傳統企業與 Web3 原生公司進行團體訂閱。</p>
+                        <p class="quote-box">趨勢：證明市場正在從「個人投機」轉向「企業應用」與「經濟建設」。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">5 / 8</div>
+        </div>
+
+        <!-- Slide 6: Social Proof -->
+        <div class="slide">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h2>社群驗證：讀者眼中的區塊勢</h2>
+                    <h3>2025 年內容滿意度調查回饋</h3>
+                </div>
+                
+                <p>我們不只創造內容，更解決了讀者的真實焦慮。</p>
+
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">務實</div>
+                        <div class="stat-label">「不盲目信仰，橋接去中心化與現實」</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">精準</div>
+                        <div class="stat-label">「技術與白話的平衡，節省大量時間」</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">必需</div>
+                        <div class="stat-label">「工作上需要的可靠資訊來源」</div>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="margin-top: 2rem;">
+                    <div class="card" style="background: #f9f9f9; padding: 1.5rem;">
+                        <h4>橋接兩邊的世界</h4>
+                        <p class="quote-box">「務實：不是無條件支持去中心化或反中心化，在幣圈/鏈圈分化的情況，<span class="highlight">橋接兩邊的世界</span>（這也是我的工作之一）。」</p>
+                        <p style="text-align: right; font-size: 0.9rem; color: #999; margin-top: 0.5rem;">— 從業人員回饋</p>
+                    </div>
+                    <div class="card" style="background: #f9f9f9; padding: 1.5rem;">
+                        <h4>難以取代的洞察</h4>
+                        <p class="quote-box">「技術與白話的解釋平衡剛好，不會太淺也不會太艱澀... <span class="highlight">邏輯自洽，自我修正</span>。」</p>
+                        <p style="text-align: right; font-size: 0.9rem; color: #999; margin-top: 0.5rem;">— 訂閱 2 年以上讀者</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">6 / 8</div>
+        </div>
+
+        <!-- Slide 7: Vision -->
+        <div class="slide">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h2>未來願景</h2>
+                </div>
+
+                <p>隨著市場成熟，區塊勢將引領讀者關注下一階段的典範轉移。</p>
+
+                <div style="display: flex; gap: 2rem; margin-top: 2rem;">
+                    <div style="flex: 1; padding: 2rem; background: #fff; border: 1px solid #ddd; border-radius: 12px;">
+                        <h4 style="color:#999; margin-bottom:0.5rem;">過去</h4>
+                        <h3 style="margin-bottom:1rem; font-size: 1.5rem;">DeFi 與 金融投機</h3>
+                        <p>關注幣價、年化報酬率、單點式的金融應用。</p>
+                    </div>
+                    <div style="display:flex; align-items:center; color:var(--accent-color); font-size: 2rem;">➡</div>
+                    <div style="flex: 1; padding: 2rem; background: #fff; border: 4px solid var(--accent-color); border-radius: 12px; box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);">
+                        <h4 style="color:var(--accent-color); margin-bottom:0.5rem;">未來 (2025-2026)</h4>
+                        <h3 style="margin-bottom:1rem; font-size: 1.5rem;">Web3 經濟體與數位基建</h3>
+                        <p>關注<strong>隱私技術</strong>、<strong>公共財</strong>、以及區塊鏈如何嵌入實體經濟。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">7 / 8</div>
+        </div>
+
+        <!-- Slide 8: Budget -->
+        <div class="slide">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h2>資金預算與里程碑</h2>
+                </div>
+
+                <p>申請金額 <strong>$9,000 USD</strong>，旨在製作與推廣高品質的開源/公共內容。</p>
+
+                <table class="budget-table">
+                    <thead>
+                        <tr>
+                            <th width="20%">項目</th>
+                            <th width="50%">說明</th>
+                            <th width="30%">預期產出</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>深度專題製作</strong><br>(40%)</td>
+                            <td>針對 GCC 關注的「隱私技術」與「數位主權」製作深度報告。</td>
+                            <td>4 篇深度長文<br>(免費公開)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Podcast 公共對話</strong><br>(30%)</td>
+                            <td>邀請開發者與政策制定者對談，探討公共數位基礎建設。</td>
+                            <td>4 集 Podcast 節目<br>(預估下載量 40k+)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>教育推廣與活動</strong><br>(30%)</td>
+                            <td>舉辦線上/線下小型分享會，連結 Web2 決策者與 Web3 建設者。</td>
+                            <td>2 場專題講座<br>(涵蓋金管會/企業代表)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <p class="highlight" style="font-size: 1.5rem;">支持區塊勢，就是投資華語區塊鏈社區的「認知基礎建設」。</p>
+                    <p style="font-size: 1.1rem; color: #666;">Contact: hi@blocktrend.today</p>
+                </div>
+            </div>
+            <div class="page-number">8 / 8</div>
+        </div>
+
+    </div>
+
+    <!-- Navigation Controls -->
+    <button class="nav-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+    <button class="nav-btn next-btn" onclick="nextSlide()">&#10095;</button>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress"></div>
     </div>
 
     <script>
         let currentSlide = 0;
         const totalSlides = 8; 
         const slider = document.getElementById('slider');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const dotsContainer = document.getElementById('dots-container');
-
-        // Initialize Dots
-        function initDots() {
-            dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('button');
-                dot.className = `dot ${i === 0 ? 'active' : ''}`;
-                dot.onclick = () => goToSlide(i);
-                dotsContainer.appendChild(dot);
-            }
-        }
+        const progressBar = document.getElementById('progress');
 
         function updateSlide() {
-            // Using % for translation to be safer across different box-sizing
-            const percentage = currentSlide * (100 / totalSlides);
-            slider.style.transform = `translateX(-${percentage}%)`;
-            
-            // Update Buttons State
-            prevBtn.disabled = currentSlide === 0;
-            nextBtn.disabled = currentSlide === totalSlides - 1;
-
-            // Update Dots
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
+            slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+            const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
         }
 
         function nextSlide() {
@@ -777,11 +663,6 @@
                 updateSlide();
             }
         }
-        
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlide();
-        }
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === 'Space') {
@@ -791,7 +672,6 @@
             }
         });
 
-        // Touch Support
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -809,8 +689,6 @@
             if (touchEndX > touchStartX + 50) prevSlide();
         }
 
-        // Init
-        initDots();
         updateSlide();
     </script>
 </body>
