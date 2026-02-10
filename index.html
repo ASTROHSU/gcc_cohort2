@@ -30,10 +30,10 @@
             width: 100vw;
         }
 
-        /* 幻燈片容器 */
+        /* 幻燈片容器 - 改為 700vw 因為現在有 7 頁 */
         .slider-container {
             display: flex;
-            width: 600vw; /* 6張投影片 */
+            width: 700vw; 
             height: 100vh;
             transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
@@ -149,6 +149,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             border: 1px solid #eee;
+            height: 100%;
         }
         
         .card h4 {
@@ -238,9 +239,30 @@
             margin-bottom: 4rem;
         }
         .cover-logo {
-            width: 180px;
-            margin-bottom: 2rem;
+            width: 220px;
+            margin-bottom: 3rem;
             filter: brightness(0) invert(1); /* 白色 Logo */
+        }
+
+        /* 循環圖示 */
+        .cycle-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .cycle-step {
+            flex: 1;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin: 0 1rem;
+        }
+        .cycle-arrow {
+            font-size: 2rem;
+            color: var(--accent-color);
         }
 
         /* 表格樣式 */
@@ -251,8 +273,9 @@
         }
         .budget-table th, .budget-table td {
             text-align: left;
-            padding: 1rem;
+            padding: 1.2rem;
             border-bottom: 1px solid #eee;
+            font-size: 1.2rem;
         }
         .budget-table th {
             color: var(--accent-color);
@@ -266,6 +289,8 @@
             h2 { font-size: 1.8rem; }
             .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
             .logo-container { width: 80px; top: 1rem; left: 1rem; }
+            .cycle-container { flex-direction: column; }
+            .cycle-arrow { transform: rotate(90deg); margin: 1rem 0; }
         }
     </style>
 </head>
@@ -283,83 +308,125 @@
             <div class="content-wrapper" style="align-items: center;">
                 <img src="https://i.urusai.cc/c8Wi8.png" alt="Blocktrend Logo" class="cover-logo">
                 <div class="header">
-                    <h1>區塊勢 Blocktrend</h1>
-                    <h3>華語區塊鏈知識的公共基礎建設</h3>
+                    <h1>華語區塊鏈知識的公共基礎建設</h1>
                 </div>
-                <div style="margin-top: 2rem; opacity: 0.9;">
-                    <p>GCC Public Goods Grant Cohort 2 Demo Day</p>
-                    <p style="font-size: 1rem; margin-top: 1rem;">Presenter: 許明恩 (Mingshen Hsu)</p>
+                <div style="margin-top: 4rem; opacity: 0.9;">
+                    <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">GCC Public Goods Grant Cohort 2 Demo Day</p>
+                    <p style="font-size: 1.2rem;">許明恩</p>
                 </div>
             </div>
-            <div class="page-number">1 / 6</div>
+            <div class="page-number">1 / 7</div>
         </div>
 
-        <!-- Slide 2: The Problem -->
+        <!-- Slide 2: Public Issue (AI & Info Overload) -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>真實存在的公共問題</h2>
-                    <h3>The Real Public Problem</h3>
+                    <h2>公共議題</h2>
                 </div>
                 
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <p style="font-size: 1.5rem; font-weight: 500;">
+                        在 AI 問世後，資訊不是太少，而是<span class="highlight">太多</span>。
+                    </p>
+                </div>
+
                 <div class="grid-2">
-                    <div class="card" style="border-left: 5px solid #e74c3c;">
-                        <h4>❌ 市場現狀：雜訊與投機</h4>
-                        <p>當前華語區媒體高度集中於「價格」與「投資建議」。</p>
+                    <div class="card" style="border-left: 5px solid #bdc3c7;">
+                        <h4>現狀：資訊焦慮</h4>
                         <ul>
-                            <li>資訊過載：讀者淹沒在空投與炒幣資訊中。</li>
-                            <li>缺乏中立：內容常受廣告商與項目方代幣影響。</li>
-                            <li>忽視建設：真正的技術創新與隱私議題被邊緣化。</li>
+                            <li>資訊爆炸，內容農場與 AI 生成內容氾濫。</li>
+                            <li>讀者被迫花費大量時間篩選，卻只得到雜訊。</li>
+                            <li>「更多」的資訊已不再是解方，而是負擔。</li>
                         </ul>
                     </div>
                     <div class="card" style="border-left: 5px solid var(--accent-color);">
-                        <h4>✅ 迫切需求：可信的知識基礎</h4>
-                        <p>建設者、研究員與政策制定者缺乏一個可靠的資訊管道。</p>
+                        <h4>解方：少即是多</h4>
                         <ul>
-                            <li>需要節省時間：每週 30 分鐘掌握「最重要」而非「最新」的事。</li>
-                            <li>需要深度解析：理解「為什麼這很重要」而非「什麼時候買」。</li>
-                            <li>需要公共視角：關注監管、隱私與基礎建設。</li>
+                            <li>區塊勢不追求海量報導，只提供經過驗證的洞察。</li>
+                            <li>我們替讀者節省時間，提供網路上「最有價值的 10 分鐘」。</li>
+                            <li>在這個時代，<strong>篩選 (Curation)</strong> 才是真正的價值。</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="page-number">2 / 6</div>
+            <div class="page-number">2 / 7</div>
         </div>
 
-        <!-- Slide 3: Solution & Irreplaceability -->
+        <!-- Slide 3: Business Model (Traffic vs Subscription) -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>不可替代性與解決方案</h2>
-                    <h3>Less is More: Signal over Noise</h3>
+                    <h2>商業模式決定資訊品質</h2>
                 </div>
                 
-                <p>區塊勢不只是一個媒體，它是華語市場的<strong>公共知識庫</strong>。</p>
+                <p>為什麼媒體會變成企業的傳聲筒？因為商業模式錯了。</p>
 
                 <div class="grid-2">
-                    <div>
+                    <div class="card" style="background-color: #fff5f5; border: none; border-left: 5px solid #e74c3c;">
+                        <h4 style="color: #c0392b;">傳統模式：流量變現</h4>
+                        <p><strong>邏輯：</strong>把讀者騙進來，賣給廣告商。</p>
                         <ul>
-                            <li><strong>少即是多 (Curated)</strong><br>不追求點閱率，只提供經過驗證、具備長期價值的洞察。我們不報導 AI 炒作或政治口水，專注於 Web3 的實質進展。</li>
-                            <li><strong>內容獨立性 (Independence)</strong><br>依靠讀者訂閱生存，而非廣告商。這讓我們敢於批評，也能專注於不賺錢但重要的「公共議題」（如隱私技術、開源協議）。</li>
+                            <li>目標：最大化點擊率 (Clickbait)。</li>
+                            <li>結果：標題殺人、內容農場化、立場受廣告商左右。</li>
+                            <li>關係：讀者是「產品」，廣告商才是客戶。</li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="card" style="background-color: #f0f9ff; border: none; border-left: 5px solid var(--accent-color);">
+                        <h4 style="color: var(--accent-color);">區塊勢模式：內容付費</h4>
+                        <p><strong>邏輯：</strong>用長時間證明訂閱價值，建立信任。</p>
                         <ul>
-                            <li><strong>歷史與信譽 (Track Record)</strong><br>自 2017 年深耕至今，Podcast 已成為行業的公眾資源 (Public Good)。即便未付費者，也能透過 Podcast 獲取關鍵法規與技術新知。</li>
-                            <li><strong>定義議題的能力</strong><br>我們不只是跟隨熱點，而是主動挖掘如 zk-proof、數位身分等硬核議題，將其轉化為大眾語言。</li>
+                            <li>目標：最大化信任感與續訂率。</li>
+                            <li>結果：深入探討硬核議題、立場獨立中立。</li>
+                            <li>關係：讀者就是「老闆」，我們只對讀者負責。</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="page-number">3 / 6</div>
+            <div class="page-number">3 / 7</div>
         </div>
 
-        <!-- Slide 4: Impact & Data -->
+        <!-- Slide 4: Reader Defined Media (The Ecosystem) -->
+        <div class="slide">
+            <div class="content-wrapper">
+                <div class="header">
+                    <h2>由讀者定義的媒體</h2>
+                </div>
+                
+                <p>我們不追逐熱點，而是建立一個正向的生態循環。</p>
+
+                <div class="cycle-container">
+                    <div class="cycle-step">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+                        <h4>1. 篩選</h4>
+                        <p>付費牆篩選出「不求炒幣資訊」的高品質讀者。</p>
+                    </div>
+                    <div class="cycle-arrow">➡</div>
+                    <div class="cycle-step">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🗳️</div>
+                        <h4>2. 投票</h4>
+                        <p>讀者用訂閱費與開信率，告訴我他們在乎什麼。</p>
+                    </div>
+                    <div class="cycle-arrow">➡</div>
+                    <div class="cycle-step">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>
+                        <h4>3. 產出</h4>
+                        <p>針對真實需求創作，而非想像中的流量密碼。</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; text-align: center; color: #666;">
+                    <p>這個機制確保了區塊勢始終關注<strong>公共性</strong>議題（如隱私、基建），<br>因為這正是付費讀者真正關心的價值。</p>
+                </div>
+            </div>
+            <div class="page-number">4 / 7</div>
+        </div>
+
+        <!-- Slide 5: Impact & Traction -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
                     <h2>影響力與驗證數據</h2>
-                    <h3>Proven Impact & Traction</h3>
                 </div>
 
                 <div style="background: #f0f4f8; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
@@ -382,30 +449,29 @@
                     </div>
                 </div>
             </div>
-            <div class="page-number">4 / 6</div>
+            <div class="page-number">5 / 7</div>
         </div>
 
-        <!-- Slide 5: Roadmap & Vision -->
+        <!-- Slide 6: Vision -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>未來願景：從金融到經濟</h2>
-                    <h3>Roadmap 2025-2026</h3>
+                    <h2>未來願景</h2>
                 </div>
 
                 <p>隨著市場成熟，區塊勢將引領讀者關注下一階段的典範轉移。</p>
 
                 <div style="display: flex; gap: 2rem; margin-top: 2rem;">
                     <div style="flex: 1; padding: 1.5rem; background: #fff; border: 1px solid #ddd; border-radius: 8px;">
-                        <h4 style="color:#999; margin-bottom:0.5rem;">過去 (Past)</h4>
+                        <h4 style="color:#999; margin-bottom:0.5rem;">過去</h4>
                         <h3 style="margin-bottom:1rem;">DeFi 與 金融投機</h3>
                         <p style="font-size: 1rem;">關注幣價、年化報酬率、單點式的金融應用。</p>
                     </div>
                     <div style="display:flex; align-items:center; color:var(--accent-color); font-size: 2rem;">➡</div>
                     <div style="flex: 1; padding: 1.5rem; background: #fff; border: 2px solid var(--accent-color); border-radius: 8px; box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);">
-                        <h4 style="color:var(--accent-color); margin-bottom:0.5rem;">未來 (Future)</h4>
+                        <h4 style="color:var(--accent-color); margin-bottom:0.5rem;">未來 (2025-2026)</h4>
                         <h3 style="margin-bottom:1rem;">Web3 經濟體與數位基建</h3>
-                        <p style="font-size: 1rem;">關注<strong>隱私技術 (Privacy)</strong>、<strong>公共財 (Public Goods)</strong>、以及區塊鏈如何嵌入實體經濟。</p>
+                        <p style="font-size: 1rem;">關注<strong>隱私技術</strong>、<strong>公共財 (Public Goods)</strong>、以及區塊鏈如何嵌入實體經濟。</p>
                     </div>
                 </div>
 
@@ -414,32 +480,31 @@
                     <p>擴大「公共性」內容的產出，確保關鍵的隱私與基礎建設知識，能免費觸及更多建設者，而非被鎖在付費牆後。</p>
                 </div>
             </div>
-            <div class="page-number">5 / 6</div>
+            <div class="page-number">6 / 7</div>
         </div>
 
-        <!-- Slide 6: Budget & Ask -->
+        <!-- Slide 7: Budget -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
                     <h2>資金預算與里程碑</h2>
-                    <h3>Budget & Milestones ($9,000 Ask)</h3>
                 </div>
 
-                <p>我們申請 <strong>$9,000 USD</strong>，旨在製作與推廣高品質的開源/公共內容。</p>
+                <p>申請金額 <strong>$9,000 USD</strong>，旨在製作與推廣高品質的開源/公共內容。</p>
 
                 <table class="budget-table">
                     <thead>
                         <tr>
                             <th width="20%">項目</th>
                             <th width="50%">說明</th>
-                            <th width="30%">預期產出 (KPI)</th>
+                            <th width="30%">預期產出</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>深度專題製作</strong><br>(40%)</td>
                             <td>針對 GCC 關注的「隱私技術」與「數位主權」製作深度報告，並設為公開資源。</td>
-                            <td>4 篇深度長文<br>(Open Access)</td>
+                            <td>4 篇深度長文<br>(免費公開)</td>
                         </tr>
                         <tr>
                             <td><strong>Podcast 公共對話</strong><br>(30%)</td>
@@ -459,7 +524,7 @@
                     <p style="font-size: 1rem; color: #666;">Contact: hi@blocktrend.today</p>
                 </div>
             </div>
-            <div class="page-number">6 / 6</div>
+            <div class="page-number">7 / 7</div>
         </div>
 
     </div>
@@ -475,7 +540,7 @@
 
     <script>
         let currentSlide = 0;
-        const totalSlides = 6;
+        const totalSlides = 7;
         const slider = document.getElementById('slider');
         const progressBar = document.getElementById('progress');
         const fixedLogo = document.getElementById('fixed-logo');
