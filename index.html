@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>區塊勢 Blocktrend - GCC Demo Day Presentation</title>
     <meta name="description" content="區塊勢 GCC Grant 申請簡報">
-    <!-- 1. 新增 Favicon -->
+    <!-- 1. 新增 Favicon (已更新為新頭像) -->
     <link rel="icon" href="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" type="image/png">
     
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -206,17 +206,18 @@
             position: fixed;
             bottom: 20px; /* 位於進度條上方一點點 */
             left: 20px;
-            width: 45px;
-            height: 45px;
+            width: 55px; /* 稍微放大一點以看清楚照片 */
+            height: 55px;
             z-index: 101;
             background: white;
             border-radius: 50%;
             padding: 0; /* 圖片填滿圓形 */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden; /* 確保圖片變成圓形 */
+            border: 3px solid white;
         }
         .bottom-logo img {
             width: 100%;
@@ -299,9 +300,12 @@
         }
         .cover-logo {
             width: 200px;
+            height: 200px; /* 確保正圓形 */
             margin-bottom: 2rem;
             border-radius: 50%; /* 封面圖也做圓角處理 */
-            /* 移除反白濾鏡，以顯示彩色照片 */
+            object-fit: cover;
+            border: 5px solid rgba(255,255,255,0.2); /* 增加一點邊框質感 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         /* 循環圖示 */
