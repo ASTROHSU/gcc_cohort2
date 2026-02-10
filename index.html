@@ -16,7 +16,7 @@
             --bg-color: #f8f9fa;
             --text-color: #333;
             --slide-bg: #ffffff;
-            --total-slides: 8; 
+            --total-slides: 7; /* 更新為 7 頁 */
         }
 
         * {
@@ -58,7 +58,7 @@
 
         /* 內容佈局 */
         .content-wrapper {
-            max-width: 1300px; /* 稍微加寬以容納更大字體 */
+            max-width: 1300px;
             width: 100%;
             height: auto;
             max-height: 90vh;
@@ -69,7 +69,7 @@
 
         .header {
             margin-bottom: 2.5rem;
-            border-left: 8px solid var(--accent-color); /* 加粗邊框 */
+            border-left: 8px solid var(--accent-color);
             padding-left: 2rem;
             flex-shrink: 0;
         }
@@ -83,7 +83,7 @@
         }
 
         h2 {
-            font-size: 3rem; /* 放大標題 */
+            font-size: 3rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
@@ -91,14 +91,14 @@
         }
 
         h3 {
-            font-size: 1.8rem; /* 放大副標題 */
+            font-size: 1.8rem;
             color: #666;
             font-weight: 500;
             margin-top: 0.5rem;
         }
 
         p {
-            font-size: 1.5rem; /* 放大內文 */
+            font-size: 1.5rem;
             line-height: 1.6;
             color: #444;
             margin-bottom: 1.5rem;
@@ -109,7 +109,7 @@
         }
 
         li {
-            font-size: 1.5rem; /* 放大列表文字 */
+            font-size: 1.5rem;
             line-height: 1.6;
             margin-bottom: 1rem;
             padding-left: 2.2rem;
@@ -135,14 +135,14 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem; /* 增加間距 */
+            gap: 3.5rem;
             align-items: stretch;
             margin-top: 1.5rem;
         }
 
         .card {
             background: #fdfdfd;
-            padding: 2.5rem; /* 增加內距 */
+            padding: 2.5rem;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             border: 1px solid #eee;
@@ -152,7 +152,7 @@
         }
         
         .card h4 {
-            font-size: 1.8rem; /* 放大卡片標題 */
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
             font-weight: 700;
@@ -164,7 +164,7 @@
             padding: 1.5rem;
             border-left: 5px solid var(--accent-color);
             margin-top: auto;
-            font-size: 1.3rem; /* 放大引用文字 */
+            font-size: 1.3rem;
             color: #555;
             line-height: 1.5;
         }
@@ -218,9 +218,9 @@
             justify-content: center;
             overflow: hidden;
             border: 3px solid white;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* 添加過渡動畫 */
-            opacity: 0; /* 預設隱藏，由 JS 控制 */
-            transform: translateY(20px); /* 預設往下偏移一點 */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
         }
         .bottom-logo.visible {
             opacity: 1;
@@ -266,7 +266,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 6px; /* 改為 6px */
+            height: 6px;
             background: rgba(0,0,0,0.08);
             z-index: 100;
         }
@@ -315,25 +315,58 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
 
-        /* 循環圖示 */
-        .cycle-container {
-            display: flex;
-            justify-content: space-between;
+        /* --- 飛輪循環 (Flywheel Cycle) --- */
+        .flywheel-container {
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr 100px 1fr;
             align-items: center;
             margin-top: 3rem;
             text-align: center;
+            position: relative;
         }
         .cycle-step {
-            flex: 1;
-            padding: 3rem;
+            padding: 2.5rem 1.5rem;
             background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin: 0 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .cycle-arrow {
-            font-size: 3rem;
+        .cycle-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: #fff5eb;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .cycle-arrow-container {
+            display: flex;
+            justify-content: center;
             color: var(--accent-color);
+            font-size: 3rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+        /* 循環背景線 - 增加視覺連結 */
+        .flywheel-bg {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: #f0f0f0;
+            z-index: 0;
+            transform: translateY(-50%);
         }
 
         /* 表格樣式 */
@@ -341,7 +374,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 2rem;
-            font-size: 1.4rem; /* 放大表格文字 */
+            font-size: 1.4rem;
         }
         .budget-table th, .budget-table td {
             text-align: left;
@@ -362,7 +395,6 @@
             .slide { padding: 0 3rem; }
             .card { padding: 1.5rem; }
             .cycle-step { padding: 1.5rem; }
-            .cycle-step div { font-size: 2.5rem !important; margin-bottom: 0.5rem !important; }
             .stat-number { font-size: 2rem; }
         }
 
@@ -370,8 +402,9 @@
             .slider-container { width: 100vw; flex-direction: column; overflow-y: auto; height: auto; display: block; }
             .slide { height: auto; min-height: 100vh; padding: 4rem 2rem; position: relative; width: 100%; top: 0; left: 0; }
             .grid-2, .stat-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .cycle-container { flex-direction: column; }
-            .cycle-arrow { transform: rotate(90deg); margin: 1rem 0; }
+            .flywheel-container { grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
+            .cycle-arrow-container { transform: rotate(90deg); margin: -1rem 0; font-size: 2rem; }
+            .flywheel-bg { display: none; }
             .nav-btn, .progress-container, .bottom-logo { display: none; } 
         }
     </style>
@@ -398,7 +431,7 @@
                     <p style="font-size: 1.6rem; font-weight: 500;">區塊勢</p>
                 </div>
             </div>
-            <div class="page-number">1 / 8</div>
+            <div class="page-number">1 / 7</div>
         </div>
 
         <!-- Slide 2: Public Problem (Redesigned) -->
@@ -414,7 +447,7 @@
                         <h4>❌ 現狀：流量陷阱</h4>
                         <ul style="font-size: 1.4rem;">
                             <li><strong>廣告模式：</strong> 媒體為追求點擊率，產出大量低品質內容。</li>
-                            <li><strong>AI 加劇雜訊：</strong> 生成式 AI 讓產製成本歸零，垃圾資訊指數級增長。</li>
+                            <li><strong>AI 加劇雜訊：</strong> 生成式 AI 讓內容產製成本歸零，垃圾資訊指數級增長。</li>
                             <li><strong>讀者困境：</strong> 讀者被迫花費大量時間過濾雜訊。</li>
                         </ul>
                     </div>
@@ -428,75 +461,58 @@
                     </div>
                 </div>
             </div>
-            <div class="page-number">2 / 8</div>
+            <div class="page-number">2 / 7</div>
         </div>
 
-        <!-- Slide 3: Business Model -->
+        <!-- Slide 3: Irreplaceability (Virtuous Cycle) -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>商業模式決定資訊品質</h2>
+                    <h2>不可替代性：由讀者驅動的飛輪</h2>
+                    <h3>難以複製的信任與品質累積</h3>
                 </div>
                 
-                <p>為什麼媒體會變成企業的傳聲筒？因為商業模式錯了。</p>
+                <p>為什麼區塊勢難以被取代？因為這是一個已經運轉 8 年，自我強化的正向循環。</p>
 
-                <div class="grid-2">
-                    <div class="card" style="background-color: #fff5f5; border: none; border-left: 10px solid #e74c3c;">
-                        <h4 style="color: #c0392b;">傳統模式：流量變現</h4>
-                        <p><strong>邏輯：</strong>把讀者騙進來，賣給廣告商。</p>
-                        <ul>
-                            <li>目標：最大化點擊率 (Clickbait)。</li>
-                            <li>結果：標題殺人、內容農場化。</li>
-                            <li>關係：讀者是「產品」，廣告商才是客戶。</li>
-                        </ul>
+                <div class="flywheel-container">
+                    <div class="flywheel-bg"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="cycle-step">
+                        <div class="cycle-icon">🛡️</div>
+                        <h4>1. 付費牆篩選</h4>
+                        <p style="font-size: 1.2rem;">篩選出不求「免費炒幣資訊」，而是尋求高品質知識的讀者。</p>
                     </div>
-                    <div class="card" style="background-color: #f0f9ff; border: none; border-left: 10px solid var(--accent-color);">
-                        <h4 style="color: var(--accent-color);">區塊勢模式：內容付費</h4>
-                        <p><strong>邏輯：</strong>用長時間證明訂閱價值，建立信任。</p>
-                        <ul>
-                            <li>目標：最大化信任感與續訂率。</li>
-                            <li>結果：深入探討硬核議題、立場獨立中立。</li>
-                            <li>關係：讀者就是「老闆」，我們只對讀者負責。</li>
-                        </ul>
+                    
+                    <!-- Arrow -->
+                    <div class="cycle-arrow-container">➡</div>
+                    
+                    <!-- Step 2 -->
+                    <div class="cycle-step">
+                        <div class="cycle-icon">🗳️</div>
+                        <h4>2. 讀者信號</h4>
+                        <p style="font-size: 1.2rem;">讀者透過續訂率與互動，決定他們在乎的議題（如隱私、基建）。</p>
                     </div>
+                    
+                    <!-- Arrow -->
+                    <div class="cycle-arrow-container">➡</div>
+                    
+                    <!-- Step 3 -->
+                    <div class="cycle-step">
+                        <div class="cycle-icon">💎</div>
+                        <h4>3. 精準產出</h4>
+                        <p style="font-size: 1.2rem;">針對真實需求創作，而非追逐市場熱點，產出高價值內容。</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; text-align: center; color: #666;">
+                    <p style="font-size: 1.4rem; font-weight: 500;">這是一個需要長時間累積的信任飛輪，而非一蹴可幾的流量爆款。</p>
                 </div>
             </div>
-            <div class="page-number">3 / 8</div>
+            <div class="page-number">3 / 7</div>
         </div>
 
-        <!-- Slide 4: Reader Defined Media -->
-        <div class="slide">
-            <div class="content-wrapper">
-                <div class="header">
-                    <h2>由讀者定義的媒體</h2>
-                </div>
-                
-                <p>我們不追逐熱點，而是建立一個正向的生態循環。</p>
-
-                <div class="cycle-container">
-                    <div class="cycle-step">
-                        <div style="font-size: 4rem; margin-bottom: 1.5rem;">🛡️</div>
-                        <h4>1. 篩選</h4>
-                        <p>付費牆篩選出「不求炒幣資訊」的高品質讀者。</p>
-                    </div>
-                    <div class="cycle-arrow">➡</div>
-                    <div class="cycle-step">
-                        <div style="font-size: 4rem; margin-bottom: 1.5rem;">🗳️</div>
-                        <h4>2. 投票</h4>
-                        <p>讀者用訂閱費與開信率，告訴我他們在乎什麼。</p>
-                    </div>
-                    <div class="cycle-arrow">➡</div>
-                    <div class="cycle-step">
-                        <div style="font-size: 4rem; margin-bottom: 1.5rem;">💎</div>
-                        <h4>3. 產出</h4>
-                        <p>針對真實需求創作，而非想像中的流量密碼。</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-number">4 / 8</div>
-        </div>
-
-        <!-- Slide 5: Impact & Traction -->
+        <!-- Slide 4: Impact & Traction -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -523,10 +539,10 @@
                     </div>
                 </div>
             </div>
-            <div class="page-number">5 / 8</div>
+            <div class="page-number">4 / 7</div>
         </div>
 
-        <!-- Slide 6: Social Proof -->
+        <!-- Slide 5: Social Proof -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -564,10 +580,10 @@
                     </div>
                 </div>
             </div>
-            <div class="page-number">6 / 8</div>
+            <div class="page-number">5 / 7</div>
         </div>
 
-        <!-- Slide 7: Vision -->
+        <!-- Slide 6: Vision -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -590,10 +606,10 @@
                     </div>
                 </div>
             </div>
-            <div class="page-number">7 / 8</div>
+            <div class="page-number">6 / 7</div>
         </div>
 
-        <!-- Slide 8: Budget -->
+        <!-- Slide 7: Budget -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -634,7 +650,7 @@
                     <p style="font-size: 1.5rem; color: #666;">Contact: hi@blocktrend.today</p>
                 </div>
             </div>
-            <div class="page-number">8 / 8</div>
+            <div class="page-number">7 / 7</div>
         </div>
 
     </div>
@@ -650,7 +666,7 @@
 
     <script>
         let currentSlide = 0;
-        const totalSlides = 8; 
+        const totalSlides = 7; 
         const slider = document.getElementById('slider');
         const progressBar = document.getElementById('progress');
         const fixedLogo = document.getElementById('fixed-logo');
