@@ -16,7 +16,7 @@
             --bg-color: #f8f9fa;
             --text-color: #333;
             --slide-bg: #ffffff;
-            --total-slides: 7; /* 更新為 7 頁 */
+            --total-slides: 7; 
         }
 
         * {
@@ -58,7 +58,7 @@
 
         /* 內容佈局 */
         .content-wrapper {
-            max-width: 1300px;
+            max-width: 1300px; /* 稍微加寬以容納更大字體 */
             width: 100%;
             height: auto;
             max-height: 90vh;
@@ -69,7 +69,7 @@
 
         .header {
             margin-bottom: 2.5rem;
-            border-left: 8px solid var(--accent-color);
+            border-left: 8px solid var(--accent-color); /* 加粗邊框 */
             padding-left: 2rem;
             flex-shrink: 0;
         }
@@ -83,7 +83,7 @@
         }
 
         h2 {
-            font-size: 3rem;
+            font-size: 3rem; /* 放大標題 */
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
@@ -91,14 +91,14 @@
         }
 
         h3 {
-            font-size: 1.8rem;
+            font-size: 1.8rem; /* 放大副標題 */
             color: #666;
             font-weight: 500;
             margin-top: 0.5rem;
         }
 
         p {
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* 放大內文 */
             line-height: 1.6;
             color: #444;
             margin-bottom: 1.5rem;
@@ -109,9 +109,9 @@
         }
 
         li {
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* 放大列表文字 */
             line-height: 1.6;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem; /* 增加行距，解決間隔不平均的問題 */
             padding-left: 2.2rem;
             position: relative;
         }
@@ -135,25 +135,26 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
+            gap: 3.5rem; /* 增加間距 */
             align-items: stretch;
             margin-top: 1.5rem;
         }
 
         .card {
             background: #fdfdfd;
-            padding: 2.5rem;
+            padding: 3rem; /* 增加內距，讓內容更舒展 */
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             border: 1px solid #eee;
             height: 100%;
             display: flex;
             flex-direction: column;
+            justify-content: center; /* 內容垂直置中 */
         }
         
         .card h4 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem; /* 放大卡片標題 */
+            margin-bottom: 2rem; /* 增加標題與列表的間距 */
             color: var(--primary-color);
             font-weight: 700;
         }
@@ -164,7 +165,7 @@
             padding: 1.5rem;
             border-left: 5px solid var(--accent-color);
             margin-top: auto;
-            font-size: 1.3rem;
+            font-size: 1.3rem; /* 放大引用文字 */
             color: #555;
             line-height: 1.5;
         }
@@ -218,9 +219,9 @@
             justify-content: center;
             overflow: hidden;
             border: 3px solid white;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-            opacity: 0;
-            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* 添加過渡動畫 */
+            opacity: 0; /* 預設隱藏，由 JS 控制 */
+            transform: translateY(20px); /* 預設往下偏移一點 */
         }
         .bottom-logo.visible {
             opacity: 1;
@@ -233,32 +234,10 @@
             display: block;
         }
 
-        /* 導航控制 */
+        /* 導航控制 (已移除) */
         .nav-btn {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            color: #ccc;
-            border: none;
-            width: 60px;
-            height: 120px;
-            cursor: pointer;
-            z-index: 100;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
+            display: none; /* 隱藏箭頭按鈕 */
         }
-
-        .nav-btn:hover {
-            color: var(--accent-color);
-            background: rgba(0,0,0,0.02);
-        }
-
-        .prev-btn { left: 10px; }
-        .next-btn { right: 10px; }
 
         /* --- 進度條 (變細) --- */
         .progress-container {
@@ -266,7 +245,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 6px; /* 改為 6px */
             background: rgba(0,0,0,0.08);
             z-index: 100;
         }
@@ -318,14 +297,14 @@
         /* --- 飛輪循環 (Flywheel Cycle) --- */
         .flywheel-container {
             display: grid;
-            grid-template-columns: 1fr 100px 1fr 100px 1fr;
+            grid-template-columns: 1fr 80px 1fr 80px 1fr;
             align-items: center;
             margin-top: 3rem;
             text-align: center;
             position: relative;
         }
         .cycle-step {
-            padding: 2.5rem 1.5rem;
+            padding: 3rem 2rem;
             background: #fff;
             border-radius: 20px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.08);
@@ -336,13 +315,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
         }
         .cycle-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
             background: #fff5eb;
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -468,12 +448,10 @@
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>不可替代性：由讀者驅動的飛輪</h2>
-                    <h3>難以複製的信任與品質累積</h3>
+                    <h2>由讀者驅動的飛輪</h2>
+                    <h3>區塊勢是已經運轉 8 年，自我強化的正向循環。</h3>
                 </div>
                 
-                <p>為什麼區塊勢難以被取代？因為這是一個已經運轉 8 年，自我強化的正向循環。</p>
-
                 <div class="flywheel-container">
                     <div class="flywheel-bg"></div>
                     
@@ -481,7 +459,7 @@
                     <div class="cycle-step">
                         <div class="cycle-icon">🛡️</div>
                         <h4>1. 付費牆篩選</h4>
-                        <p style="font-size: 1.2rem;">篩選出不求「免費炒幣資訊」，而是尋求高品質知識的讀者。</p>
+                        <p style="font-size: 1.4rem;">篩選出追求高品質內容的讀者。</p>
                     </div>
                     
                     <!-- Arrow -->
@@ -490,8 +468,8 @@
                     <!-- Step 2 -->
                     <div class="cycle-step">
                         <div class="cycle-icon">🗳️</div>
-                        <h4>2. 讀者信號</h4>
-                        <p style="font-size: 1.2rem;">讀者透過續訂率與互動，決定他們在乎的議題（如隱私、基建）。</p>
+                        <h4>2. 讀者回饋</h4>
+                        <p style="font-size: 1.4rem;">讀者透過續訂與互動，決定他們在乎的議題（如隱私、應用）。</p>
                     </div>
                     
                     <!-- Arrow -->
@@ -500,13 +478,13 @@
                     <!-- Step 3 -->
                     <div class="cycle-step">
                         <div class="cycle-icon">💎</div>
-                        <h4>3. 精準產出</h4>
-                        <p style="font-size: 1.2rem;">針對真實需求創作，而非追逐市場熱點，產出高價值內容。</p>
+                        <h4>3. 客製化產出</h4>
+                        <p style="font-size: 1.4rem;">針對讀者需求寫作，而非追逐市場熱點。</p>
                     </div>
                 </div>
 
                 <div style="margin-top: 3rem; text-align: center; color: #666;">
-                    <p style="font-size: 1.4rem; font-weight: 500;">這是一個需要長時間累積的信任飛輪，而非一蹴可幾的流量爆款。</p>
+                    <p style="font-size: 1.4rem; font-weight: 500;">這是需要長時間累積的信任飛輪。</p>
                 </div>
             </div>
             <div class="page-number">3 / 7</div>
@@ -656,8 +634,9 @@
     </div>
 
     <!-- Navigation Controls -->
-    <button class="nav-btn prev-btn" onclick="prevSlide()">&#10094;</button>
-    <button class="nav-btn next-btn" onclick="nextSlide()">&#10095;</button>
+    <!-- Removed arrow buttons, keeping prev/next logic for keyboard/touch control -->
+    <button class="nav-btn prev-btn" onclick="prevSlide()"></button>
+    <button class="nav-btn next-btn" onclick="nextSlide()"></button>
 
     <!-- Progress Bar -->
     <div class="progress-container">
