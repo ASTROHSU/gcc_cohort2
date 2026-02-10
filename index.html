@@ -58,7 +58,7 @@
 
         /* 內容佈局 */
         .content-wrapper {
-            max-width: 1300px; /* 稍微加寬以容納更大字體 */
+            max-width: 1300px;
             width: 100%;
             height: auto;
             max-height: 90vh;
@@ -69,7 +69,7 @@
 
         .header {
             margin-bottom: 2.5rem;
-            border-left: 8px solid var(--accent-color); /* 加粗邊框 */
+            border-left: 8px solid var(--accent-color);
             padding-left: 2rem;
             flex-shrink: 0;
         }
@@ -83,7 +83,7 @@
         }
 
         h2 {
-            font-size: 3rem; /* 放大標題 */
+            font-size: 3rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
@@ -91,14 +91,14 @@
         }
 
         h3 {
-            font-size: 1.8rem; /* 放大副標題 */
+            font-size: 1.8rem;
             color: #666;
             font-weight: 500;
             margin-top: 0.5rem;
         }
 
         p {
-            font-size: 1.5rem; /* 放大內文 */
+            font-size: 1.5rem;
             line-height: 1.6;
             color: #444;
             margin-bottom: 1.5rem;
@@ -109,9 +109,9 @@
         }
 
         li {
-            font-size: 1.5rem; /* 放大列表文字 */
+            font-size: 1.5rem;
             line-height: 1.6;
-            margin-bottom: 1.5rem; /* 增加行距，解決間隔不平均的問題 */
+            margin-bottom: 1.2rem; /* 調整行距 */
             padding-left: 2.2rem;
             position: relative;
         }
@@ -135,26 +135,26 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem; /* 增加間距 */
+            gap: 3.5rem;
             align-items: stretch;
             margin-top: 1.5rem;
         }
 
         .card {
             background: #fdfdfd;
-            padding: 3rem; /* 增加內距，讓內容更舒展 */
+            padding: 3rem;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             border: 1px solid #eee;
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* 內容垂直置中 */
+            justify-content: center;
         }
         
         .card h4 {
-            font-size: 1.8rem; /* 放大卡片標題 */
-            margin-bottom: 2rem; /* 增加標題與列表的間距 */
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-color);
             font-weight: 700;
         }
@@ -165,7 +165,7 @@
             padding: 1.5rem;
             border-left: 5px solid var(--accent-color);
             margin-top: auto;
-            font-size: 1.3rem; /* 放大引用文字 */
+            font-size: 1.2rem;
             color: #555;
             line-height: 1.5;
         }
@@ -219,9 +219,9 @@
             justify-content: center;
             overflow: hidden;
             border: 3px solid white;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* 添加過渡動畫 */
-            opacity: 0; /* 預設隱藏，由 JS 控制 */
-            transform: translateY(20px); /* 預設往下偏移一點 */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
         }
         .bottom-logo.visible {
             opacity: 1;
@@ -236,7 +236,7 @@
 
         /* 導航控制 (已移除) */
         .nav-btn {
-            display: none; /* 隱藏箭頭按鈕 */
+            display: none;
         }
 
         /* --- 進度條 (變細) --- */
@@ -245,7 +245,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 6px; /* 改為 6px */
+            height: 6px;
             background: rgba(0,0,0,0.08);
             z-index: 100;
         }
@@ -315,7 +315,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: flex-start; /* 確保內容從上開始 */
         }
         .cycle-icon {
             font-size: 4rem;
@@ -337,7 +337,22 @@
             position: relative;
             z-index: 1;
         }
-        /* 循環背景線 - 增加視覺連結 */
+        
+        /* 針對飛輪文字的修正 */
+        .cycle-step h4 {
+            font-size: 2.2rem; /* 標題放大 */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .cycle-step p {
+            font-size: 1.3rem; /* 內文縮小 */
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 循環背景線 */
         .flywheel-bg {
             position: absolute;
             top: 50%;
@@ -375,6 +390,8 @@
             .slide { padding: 0 3rem; }
             .card { padding: 1.5rem; }
             .cycle-step { padding: 1.5rem; }
+            .cycle-step h4 { font-size: 1.8rem; }
+            .cycle-step p { font-size: 1.1rem; }
             .stat-number { font-size: 2rem; }
         }
 
@@ -448,7 +465,7 @@
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>由讀者驅動的飛輪</h2>
+                    <h2>由讀者驅動的內容飛輪</h2>
                     <h3>區塊勢是已經運轉 8 年，自我強化的正向循環。</h3>
                 </div>
                 
@@ -459,7 +476,7 @@
                     <div class="cycle-step">
                         <div class="cycle-icon">🛡️</div>
                         <h4>1. 付費牆篩選</h4>
-                        <p style="font-size: 1.4rem;">篩選出追求高品質內容的讀者。</p>
+                        <p>篩選出追求高品質內容的讀者。</p>
                     </div>
                     
                     <!-- Arrow -->
@@ -469,7 +486,7 @@
                     <div class="cycle-step">
                         <div class="cycle-icon">🗳️</div>
                         <h4>2. 讀者回饋</h4>
-                        <p style="font-size: 1.4rem;">讀者透過續訂與互動，決定他們在乎的議題（如隱私、應用）。</p>
+                        <p>讀者透過續訂與互動，決定他們在乎的議題（如隱私、應用）。</p>
                     </div>
                     
                     <!-- Arrow -->
@@ -478,13 +495,9 @@
                     <!-- Step 3 -->
                     <div class="cycle-step">
                         <div class="cycle-icon">💎</div>
-                        <h4>3. 客製化產出</h4>
-                        <p style="font-size: 1.4rem;">針對讀者需求寫作，而非追逐市場熱點。</p>
+                        <h4>3. 產出獨家價值</h4>
+                        <p>針對需求產出的內容，正是讀者願意付費的核心價值。</p>
                     </div>
-                </div>
-
-                <div style="margin-top: 3rem; text-align: center; color: #666;">
-                    <p style="font-size: 1.4rem; font-weight: 500;">這是需要長時間累積的信任飛輪。</p>
                 </div>
             </div>
             <div class="page-number">3 / 7</div>
@@ -494,26 +507,20 @@
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>影響力與驗證數據</h2>
+                    <h2>影響力擴散：從個人到決策核心</h2>
+                    <h3>讀者驅動的飛輪效應，讓我們跨越了同溫層。</h3>
                 </div>
 
-                <div style="background: #f0f4f8; padding: 2rem; border-radius: 16px; margin-bottom: 3rem;">
-                    <p style="font-size: 2rem; color: var(--primary-color); margin-bottom: 0;">
-                        <span style="font-size: 4rem; font-weight: bold; color: var(--accent-color);">2017</span> 年至今的信任積累
-                    </p>
-                    <p style="margin-bottom: 0;">不僅服務個人，更深入<strong>決策核心</strong>。</p>
-                </div>
-
-                <div class="grid-2">
+                <div class="grid-2" style="margin-top: 3rem;">
                     <div class="card">
                         <h4>🏛 政府機關付費訂閱</h4>
                         <p>台灣加密貨幣主管機關——<strong>金融監督管理委員會 (FSC)</strong> 已正式加入團體訂閱。</p>
                         <p class="quote-box">意義：內容正在影響監管者的認知，協助在體制內推動合理的數位資產監管框架。</p>
                     </div>
                     <div class="card">
-                        <h4>🏢 從個人到企業</h4>
-                        <p>訂閱戶結構正在改變：越來越多傳統企業與 Web3 原生公司進行團體訂閱。</p>
-                        <p class="quote-box">趨勢：證明市場正在從「個人投機」轉向「企業應用」與「經濟建設」。</p>
+                        <h4>🏢 企業團體訂閱</h4>
+                        <p>訂閱結構轉變：從個人延伸至<strong>金融機構與傳統企業</strong>。</p>
+                        <p class="quote-box">意義：證明內容對實務工作有具體幫助，而非僅供投機參考。</p>
                     </div>
                 </div>
             </div>
