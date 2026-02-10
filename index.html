@@ -16,7 +16,7 @@
             --bg-color: #f8f9fa;
             --text-color: #333;
             --slide-bg: #ffffff;
-            --total-slides: 7; 
+            --total-slides: 7; /* 確認總頁數為 7 */
         }
 
         * {
@@ -54,11 +54,12 @@
             padding: 0 5vw;
             background-color: var(--slide-bg);
             position: relative;
+            flex-shrink: 0; /* 關鍵：防止頁面被壓縮 */
         }
 
         /* 內容佈局 */
         .content-wrapper {
-            max-width: 1300px; /* 稍微加寬以容納更大字體 */
+            max-width: 1300px;
             width: 100%;
             height: auto;
             max-height: 90vh;
@@ -69,7 +70,7 @@
 
         .header {
             margin-bottom: 2.5rem;
-            border-left: 8px solid var(--accent-color); /* 加粗邊框 */
+            border-left: 8px solid var(--accent-color);
             padding-left: 2rem;
             flex-shrink: 0;
         }
@@ -83,7 +84,7 @@
         }
 
         h2 {
-            font-size: 3rem; /* 放大標題 */
+            font-size: 3rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
@@ -91,14 +92,14 @@
         }
 
         h3 {
-            font-size: 1.8rem; /* 放大副標題 */
+            font-size: 1.8rem;
             color: #666;
             font-weight: 500;
             margin-top: 0.5rem;
         }
 
         p {
-            font-size: 1.5rem; /* 放大內文 */
+            font-size: 1.5rem;
             line-height: 1.6;
             color: #444;
             margin-bottom: 1.5rem;
@@ -109,9 +110,9 @@
         }
 
         li {
-            font-size: 1.5rem; /* 放大列表文字 */
+            font-size: 1.5rem;
             line-height: 1.6;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             padding-left: 2.2rem;
             position: relative;
         }
@@ -135,24 +136,25 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem; /* 增加間距 */
+            gap: 3.5rem;
             align-items: stretch;
             margin-top: 1.5rem;
         }
 
         .card {
             background: #fdfdfd;
-            padding: 2.5rem; /* 增加內距 */
+            padding: 3rem;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             border: 1px solid #eee;
             height: 100%;
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
         
         .card h4 {
-            font-size: 1.8rem; /* 放大卡片標題 */
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
             font-weight: 700;
@@ -164,44 +166,12 @@
             padding: 1.5rem;
             border-left: 5px solid var(--accent-color);
             margin-top: auto;
-            font-size: 1.3rem; /* 放大引用文字 */
+            font-size: 1.2rem;
             color: #555;
             line-height: 1.5;
         }
 
-        /* 數據展示 */
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-        .stat-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            border: 1px solid #f0f0f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--accent-color);
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-        }
-        .stat-label {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-
-        /* --- 左下角 Logo (Bottom Left) --- */
+        /* 左下角 Logo */
         .bottom-logo {
             position: fixed;
             bottom: 20px;
@@ -218,9 +188,9 @@
             justify-content: center;
             overflow: hidden;
             border: 3px solid white;
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* 添加過渡動畫 */
-            opacity: 0; /* 預設隱藏，由 JS 控制 */
-            transform: translateY(20px); /* 預設往下偏移一點 */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
         }
         .bottom-logo.visible {
             opacity: 1;
@@ -233,18 +203,16 @@
             display: block;
         }
 
-        /* 導航控制 (已移除) */
-        .nav-btn {
-            display: none;
-        }
+        /* 隱藏導航按鈕 */
+        .nav-btn { display: none; }
 
-        /* --- 進度條 (變細) --- */
+        /* 進度條 */
         .progress-container {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 6px; /* 改為 6px */
+            height: 6px;
             background: rgba(0,0,0,0.08);
             z-index: 100;
         }
@@ -274,15 +242,8 @@
             text-align: center;
         }
         .slide-cover h1 { color: white; margin-bottom: 1.5rem; }
-        .slide-cover h2, .slide-cover h3, .slide-cover p {
-            color: white;
-            text-align: center;
-        }
-        .slide-cover .header {
-            border-left: none;
-            padding: 0;
-            margin-bottom: 4rem;
-        }
+        .slide-cover h2, .slide-cover h3, .slide-cover p { color: white; text-align: center; }
+        .slide-cover .header { border: none; padding: 0; margin-bottom: 4rem; }
         .cover-logo {
             width: 220px;
             height: 220px;
@@ -293,7 +254,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
 
-        /* --- 飛輪循環 (Flywheel Cycle) --- */
+        /* 飛輪循環 */
         .flywheel-container {
             display: grid;
             grid-template-columns: 1fr 80px 1fr 80px 1fr;
@@ -361,7 +322,7 @@
             transform: translateY(-50%);
         }
 
-        /* 表格樣式 */
+        /* 預算表格 */
         .budget-table {
             width: 100%;
             border-collapse: collapse;
@@ -389,23 +350,22 @@
             .cycle-step { padding: 1.5rem; }
             .cycle-step h4 { font-size: 1.8rem; }
             .cycle-step p { font-size: 1.1rem; }
-            .stat-number { font-size: 2rem; }
         }
 
         @media (max-width: 768px) {
             .slider-container { width: 100vw; flex-direction: column; overflow-y: auto; height: auto; display: block; }
             .slide { height: auto; min-height: 100vh; padding: 4rem 2rem; position: relative; width: 100%; top: 0; left: 0; }
-            .grid-2, .stat-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
             .flywheel-container { grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
             .cycle-arrow-container { transform: rotate(90deg); margin: -1rem 0; font-size: 2rem; }
             .flywheel-bg { display: none; }
-            .nav-btn, .progress-container, .bottom-logo { display: none; } 
+            .bottom-logo { display: none; } 
         }
     </style>
 </head>
 <body>
 
-    <!-- Logo (Fixed Bottom Left, initially hidden) -->
+    <!-- Logo -->
     <div class="bottom-logo" id="fixed-logo">
         <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" alt="Blocktrend Logo">
     </div>
@@ -415,7 +375,6 @@
         <!-- Slide 1: Cover -->
         <div class="slide slide-cover">
             <div class="content-wrapper" style="align-items: center;">
-                <!-- Cover Logo -->
                 <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" alt="Blocktrend Logo" class="cover-logo">
                 <div class="header">
                     <h1>華語區塊鏈知識的公共智庫</h1>
@@ -458,7 +417,7 @@
             <div class="page-number">2 / 7</div>
         </div>
 
-        <!-- Slide 3: Irreplaceability -->
+        <!-- Slide 3: Flywheel (Irreplaceability) -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -469,27 +428,18 @@
                 <div class="flywheel-container">
                     <div class="flywheel-bg"></div>
                     
-                    <!-- Step 1 -->
                     <div class="cycle-step">
                         <div class="cycle-icon">🛡️</div>
                         <h4>1. 付費牆篩選</h4>
                         <p style="font-size: 1.4rem;">篩選出追求高品質內容的讀者。</p>
                     </div>
-                    
-                    <!-- Arrow -->
                     <div class="cycle-arrow-container">➡</div>
-                    
-                    <!-- Step 2 -->
                     <div class="cycle-step">
                         <div class="cycle-icon">🗳️</div>
                         <h4>2. 讀者回饋</h4>
                         <p style="font-size: 1.4rem;">讀者透過續訂與互動，決定他們在乎的議題（如隱私、應用）。</p>
                     </div>
-                    
-                    <!-- Arrow -->
                     <div class="cycle-arrow-container">➡</div>
-                    
-                    <!-- Step 3 -->
                     <div class="cycle-step">
                         <div class="cycle-icon">💎</div>
                         <h4>3. 產出獨家價值</h4>
@@ -524,48 +474,7 @@
             <div class="page-number">4 / 7</div>
         </div>
 
-        <!-- Slide 5: Social Proof -->
-        <div class="slide">
-            <div class="content-wrapper">
-                <div class="header">
-                    <h2>社群驗證：讀者眼中的區塊勢</h2>
-                    <h3>2025 年內容滿意度調查回饋</h3>
-                </div>
-                
-                <p>我們不只創造內容，更解決了讀者的真實焦慮。</p>
-
-                <div class="stat-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">務實</div>
-                        <div class="stat-label">「不盲目信仰，橋接去中心化與現實」</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">精準</div>
-                        <div class="stat-label">「技術與白話的平衡，節省大量時間」</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">必需</div>
-                        <div class="stat-label">「工作上需要的可靠資訊來源」</div>
-                    </div>
-                </div>
-
-                <div class="grid-2" style="margin-top: 2rem;">
-                    <div class="card" style="background: #f9f9f9; padding: 2rem;">
-                        <h4>橋接兩邊的世界</h4>
-                        <p class="quote-box">「務實：不是無條件支持去中心化或反中心化，在幣圈/鏈圈分化的情況，<span class="highlight">橋接兩邊的世界</span>（這也是我的工作之一）。」</p>
-                        <p style="text-align: right; font-size: 1.2rem; color: #999; margin-top: 0.5rem;">— 從業人員回饋</p>
-                    </div>
-                    <div class="card" style="background: #f9f9f9; padding: 2rem;">
-                        <h4>難以取代的洞察</h4>
-                        <p class="quote-box">「技術與白話的解釋平衡剛好，不會太淺也不會太艱澀... <span class="highlight">邏輯自洽，自我修正</span>。」</p>
-                        <p style="text-align: right; font-size: 1.2rem; color: #999; margin-top: 0.5rem;">— 訂閱 2 年以上讀者</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-number">5 / 7</div>
-        </div>
-
-        <!-- Slide 6: Vision -->
+        <!-- Slide 5: Vision -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -588,10 +497,10 @@
                     </div>
                 </div>
             </div>
-            <div class="page-number">6 / 7</div>
+            <div class="page-number">5 / 7</div>
         </div>
 
-        <!-- Slide 7: Budget -->
+        <!-- Slide 6: Budget -->
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
@@ -623,10 +532,10 @@
                     <p style="font-size: 1.5rem; color: #666;">Contact: hi@blocktrend.today</p>
                 </div>
             </div>
-            <div class="page-number">7 / 7</div>
+            <div class="page-number">6 / 7</div>
         </div>
 
-        <!-- Slide 8: Contact/End -->
+        <!-- Slide 7: End -->
         <div class="slide">
             <div class="content-wrapper" style="text-align: center; align-items: center;">
                 <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/348267456_602123935212639_2806711397609376908_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZMdCv2-P6RcQ7kNvwEfD1W7&_nc_oc=AdnBopyo7XbkrYuFo9HQo7-eqhmz5OUa5E8h9uXpEGtEvp_h2TC1YqJCD3LY_J1YRPY&_nc_zt=23&_nc_ht=scontent-tpe1-1.xx&_nc_gid=8zLnmR_mmH8fkqeiV_jxUw&oh=00_AftO8KjzzX2dsDIW-imEiXEnhy1MJNAhmPZGiQHzsTpDMA&oe=6990CDF9" alt="Blocktrend Logo" style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 2rem; border: 4px solid #eee;">
@@ -642,12 +551,9 @@
 
     </div>
 
-    <!-- Navigation Controls -->
-    <!-- Removed arrow buttons, keeping prev/next logic for keyboard/touch control -->
     <button class="nav-btn prev-btn" onclick="prevSlide()"></button>
     <button class="nav-btn next-btn" onclick="nextSlide()"></button>
 
-    <!-- Progress Bar -->
     <div class="progress-container">
         <div class="progress-bar" id="progress"></div>
     </div>
