@@ -191,18 +191,22 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 2px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .stat-number {
-            font-size: 4rem;
+            font-size: 3rem; /* 調整大小以適應文字 */
             font-weight: 900;
             color: var(--accent-color);
-            line-height: 1;
+            line-height: 1.2;
             margin-bottom: 0.5rem;
         }
         .stat-label {
             font-size: 1.4rem;
             color: var(--primary-color);
-            font-weight: 700;
+            font-weight: 500;
         }
 
         /* Logo 樣式 */
@@ -516,36 +520,38 @@
         <div class="slide">
             <div class="content-wrapper">
                 <div class="header">
-                    <h2>社群驗證：社會證明</h2>
-                    <h3>2025 年內容滿意度調查結果</h3>
+                    <h2>社群驗證：讀者眼中的區塊勢</h2>
+                    <h3>2025 年內容滿意度調查回饋</h3>
                 </div>
                 
-                <p>我們確實做到了我們承諾的價值。來自讀者的真實回饋確認了我們的方向。</p>
+                <p>我們不只創造內容，更解決了讀者的真實焦慮。以下來自 2025 年讀者的真實聲音：</p>
 
-                <!-- 模擬數據，請填入真實數據 -->
+                <!-- 替換為 CSV 中的關鍵主題 -->
                 <div class="stat-grid">
                     <div class="stat-item">
-                        <div class="stat-number">9X%</div>
-                        <div class="stat-label">認為內容「中立客觀」</div>
+                        <div class="stat-number">務實</div>
+                        <div class="stat-label">「不盲目信仰，橋接去中心化與現實世界」</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">XX%</div>
-                        <div class="stat-label">是為了「研究與工作需求」</div>
+                        <div class="stat-number">精準</div>
+                        <div class="stat-label">「技術與白話的平衡剛好，節省大量時間」</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">XX%</div>
-                        <div class="stat-label">表示「節省了大量時間」</div>
+                        <div class="stat-number">必需</div>
+                        <div class="stat-label">「工作上需要相關知識，是可靠的資訊來源」</div>
                     </div>
                 </div>
 
                 <div class="grid-2" style="margin-top: 3rem;">
                     <div class="card" style="background: #f9f9f9;">
-                        <h4>讀者聲音：專業與信任</h4>
-                        <p class="quote-box">「在雜訊充斥的幣圈市場中，區塊勢是極少數能讓我冷靜思考、不被 FOMO 情緒綁架的資訊來源。」</p>
+                        <h4>讀者評價：橋接兩邊的世界</h4>
+                        <p class="quote-box">「務實：不是無條件支持去中心化或反中心化，在幣圈/鏈圈分化的情況，<span class="highlight">橋接兩邊的世界</span>（這也是我的工作之一）。」</p>
+                        <p style="text-align: right; font-size: 1rem; color: #999; margin-top: 1rem;">— 來自從業人員的滿意度回饋</p>
                     </div>
                     <div class="card" style="background: #f9f9f9;">
-                        <h4>讀者聲音：橋接 Web2 與 Web3</h4>
-                        <p class="quote-box">「對於我們這種傳統金融從業者來說，區塊勢用清晰的邏輯拆解複雜的技術，是我們了解產業變化的最佳橋樑。」</p>
+                        <h4>讀者評價：難以取代的洞察</h4>
+                        <p class="quote-box">「技術與白話的解釋平衡剛好，不會太淺也不會太艱澀... <span class="highlight">邏輯自洽，自我修正</span>。」</p>
+                        <p style="text-align: right; font-size: 1rem; color: #999; margin-top: 1rem;">— 訂閱 2 年以上讀者</p>
                     </div>
                 </div>
             </div>
