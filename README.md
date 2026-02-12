@@ -20,6 +20,10 @@
 2. 使用方向鍵或點擊左右按鈕切換投影片
 3. 在行動裝置上可滑動切換
 
+## GitHub Pages 線上預覽
+
+若已啟用 GitHub Pages，可在此查看：**https://astrohsu.github.io/gcc_cohort2/**
+
 ## 投影片內容
 
 1. 封面
